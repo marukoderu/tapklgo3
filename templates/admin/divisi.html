@@ -1,0 +1,236 @@
+
+
+{{define "divisi"}}
+{{template "templates/layouts/admin/header/admindash-headerTugas" .}}
+{{template "templates/layouts/admin/navDashA"}}
+
+<!-- main-content -->
+<div class="main-content app-content">
+
+    <!-- main-header -->
+    <div class="main-header sticky side-header nav nav-item">
+        <div class="container-fluid">
+            <div class="main-header-left ">
+                <div class="responsive-logo">
+                    <a href="index.html"><img src="/assets/valex/HTML/html/assets/img/brand/logo.png" class="logo-1" alt="logo"></a>
+                    <a href="index.html"><img src="/assets/valex/HTML/html/assets/img/brand/logo-white.png" class="dark-logo-1" alt="logo"></a>
+                    <a href="index.html"><img src="/assets/valex/HTML/html/assets/img/brand/favicon.png" class="logo-2" alt="logo"></a>
+                    <a href="index.html"><img src="/assets/valex/HTML/html/assets/img/brand/favicon-white.png" class="dark-logo-2" alt="logo"></a>
+                </div>
+                <div class="app-sidebar__toggle" data-toggle="sidebar">
+                    <a class="open-toggle" href="#"><i class="header-icon fe fe-align-left" ></i></a>
+                    <a class="close-toggle" href="#"><i class="header-icons fe fe-x"></i></a>
+                </div>
+            </div>
+            <div class="main-header-right">
+                <div class="nav nav-item  navbar-nav-right ml-auto">
+                    <div class="nav-item full-screen fullscreen-button">
+                        <a class="new nav-link full-screen-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg></a>
+                    </div>
+                    <div class="dropdown main-profile-menu nav nav-item nav-link">
+                        <a class="profile-user d-flex" href=""><img alt="" src="/assets/valex/HTML/html/assets/img/faces/6.jpg"></a>
+                        <div class="dropdown-menu">
+                            <div class="main-header-profile bg-primary p-3">
+                                <div class="d-flex wd-100p">
+                                    <div class="main-img-user"><img alt="" src="/assets/valex/HTML/html/assets/img/faces/6.jpg" class=""></div>
+                                    <div class="ml-3 my-auto">
+                                        <h6>{{.sess_name}}</h6><span>{{.sess_name}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="dropdown-item" href="/dashboard/admin/account"><i class="bx bx-slider-alt"></i> Account Settings</a>
+                            <a class="dropdown-item" href="/logout"><i class="bx bx-log-out"></i> Sign Out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /main-header -->
+
+    <!-- container -->
+    <div class="container-fluid">
+
+        <!-- breadcrumb -->
+        <div class="breadcrumb-header justify-content-between">
+            <div class="left-content">
+                <div>
+                  <h2 class="main-content-title tx-34 mg-b-1 mg-b-lg-1">Halaman List Divisi</h2>
+                  <p class="tx-20 mg-b-0">Kamu bisa melihat daftar divisi PKL ^^</p>
+                </div>
+            </div>
+            <div class="main-dashboard-header-right">
+
+            </div>
+        </div>
+        <!-- /breadcrumb -->
+
+        <!-- row -->
+        <div class="row row-sm">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-xm-12">
+                <div class="card overflow-hidden sales-card bg-primary-gradient">
+                    <div class="pl-3 pt-5 pr-3 pb-5 pt-0">
+                        <div class="">
+                            <h6 class="mb-3 tx-16 text-white">SISWA AKTIF</h6>
+                        </div>
+                        <div class="pb-0 mt-0">
+                            <div class="d-flex">
+                                <div class="">
+                                    <h4 class="tx-20 font-weight-bold mb-1 text-white">5</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-xm-12">
+                <div class="card overflow-hidden sales-card bg-danger-gradient">
+                    <div class="pl-3 pt-5 pr-3 pb-5 pt-0">
+                        <div class="">
+                            <h6 class="mb-3 tx-16 text-white">SISWA TIDAK AKTIF</h6>
+                        </div>
+                        <div class="pb-0 mt-0">
+                            <div class="d-flex">
+                                <div class="">
+                                    <h4 class="tx-20 font-weight-bold mb-1 text-white">0</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-xm-12">
+                <div class="card overflow-hidden sales-card bg-danger-gradient">
+                    <div class="pl-3 pt-5 pr-3 pb-5 pt-0">
+                        <div class="">
+                            <h6 class="mb-3 tx-16 text-white">UNKNOWN</h6>
+                        </div>
+                        <div class="pb-0 mt-0">
+                            <div class="d-flex">
+                                <div class="">
+                                    <h4 class="tx-20 font-weight-bold mb-1 text-white">0</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row closed -->
+
+        <!-- row opened -->
+        <div class="row row-sm">
+            <!--div-->
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="card mg-b-20">
+                    <div class="card-header pb-0">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title mg-b-0">List Divisi PKL</h4>
+                        </div>
+                        <p class="tx-12 tx-gray-500 mb-2">Berikut ini adalah daftar divisi pkl saat ini</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example" class="table key-buttons text-md-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th class="wd-lg-10p border-bottom-0">ID</th>
+                                        <th class="wd-lg-45p border-bottom-0 tx-left">Divisi</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{range .divisis}}
+                                    <tr>
+                                        <td class="align-middle">{{.Id}}</td>
+                                        <td class="tx-left tx-medium tx-inverse align-middle">{{.Divisi}}</td>
+                                        <td>
+                                            <a class="modal-effect btn btn-md btn-warning btn-block btn-middle" data-effect="effect-slide-in-right" data-toggle="modal" href="#divisiedit{{.Id}}">Edit</a>
+                                            <a class="btn btn-md btn-danger btn-block btn-middle" href="/dashboard/admin/divisi/delete?id={{.Id}}" onclick="return confirm('Yakin untuk menghapus ?');">Delete</a>
+                                        </td>
+                                    </tr>
+                                    {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div>
+                                    <a class="user-c-laporan modal-effect"  data-effect="effect-slide-in-right" data-toggle="modal" href="#divisicreate"><button class="btn btn-primary btn-block align-middle">Tambah Divisi</button></a>
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-md-6">
+                                <div>
+                                    <p class="tx-12 tx-gray-500 mb-2">Buat laporan sesuai dengan apa yang kamu telah kerjakan</p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/div-->
+
+        </div>
+        <!-- row closed -->
+
+        <!-- Modal effects -->
+			<div class="modal" id="divisicreate">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content modal-content-demo">
+                        <form action="/dashboard/admin/divisi/create/process" method="POST" class="form-horizontal" >
+                            <div class="modal-header">
+                                <h6 class="modal-title">Create Divisi</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="divisi">Divisi</label>
+                                        <input type="text" class="form-control" id="divisi" name="divisi" placeholder="Nama Divisi">
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn ripple btn-primary" type="submit">Create</button>
+                                <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
+                            </div>
+                        </form>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal effects-->
+
+        {{range .divisis}}
+        <!-- Modal effects -->
+			<div class="modal" id="divisiedit{{.Id}}">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content modal-content-demo">
+                        <form action="/dashboard/admin/divisi/update" method="POST" class="form-horizontal" >
+                            <div class="modal-header">
+                                <h6 class="modal-title">Edit Divisi</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" class="form-control" id="divisi_id" name="divisi_id" value="{{.Id}}">
+                                    <div class="form-group">
+                                        <label for="divisi">Divisi</label>
+                                        <input type="text" class="form-control" id="divisi" name="divisi" placeholder="{{.Divisi}}">
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn ripple btn-primary" type="submit">Save</button>
+                                <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
+                            </div>
+                        </form>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal effects-->
+            {{end}}
+
+       
+    </div>
+    <!-- /Container -->
+</div>
+<!-- /main-content -->
+{{template "templates/layouts/admin/footer/admindash-footerTugas"}}
+{{end}}
+

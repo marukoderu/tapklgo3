@@ -1,0 +1,19 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.headmain {
+    background-color: #ececec;
+    color: rgb(48, 48, 48);
+
+    padding: 8% 5% 8% 5%;
+}
+
+.headtxtp {
+    padding-right: 50%;
+}
+
+.headsubmain {
+    background-color: #75CDD8;
+    padding: 10% 5% 10% 5%;
+}

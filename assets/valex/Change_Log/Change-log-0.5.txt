@@ -1,0 +1,357 @@
+VALEX Admin Template
+
+Version V.0.5 - Updates  26 April 2021  
+--------------------------------------------------------------------------------------------------------
+
+Updates :  
+
+1) Improved and Fixed  UI  Issues
+
+2) Improved some Html pages 
+
+3) Improved page breadcrumb (except in index.html)
+
+4) Improved logo link in all html pages for responsive logo
+
+5) Improved gulp file 
+
+6) 3 Levels submenu updated  in both horizontal and vertical
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+Note:-If you are using scss files then please run gulp  commands as directed in documentation. If you want to know more about gulp go through gulp tutorials.
+
+
+////////////////////////////////////////////////////////////////////
+
+1) UI Improved
+
+///////////////////////////////////////////////////////////////////
+
+improved the UI so, replace the below folders:-
+
+css(assets/css), css-rtl(assets/css-rtl)
+
+scss(assets/scss), scss-rtl(assets/scss-rtl)
+
+plugins(assets/plugins), js(assets/js)
+
+
+////////////////////////////////////////////////////////////////////
+
+2) Improved some Html pages
+
+///////////////////////////////////////////////////////////////////
+
+some html pages are improved so, please replace below mentioned html pages in respective versions:-
+
+* accordion.html
+* map-leaflet.html
+* map-vector.html
+* invoice.html
+* dropdown.html (only in rtl versions)
+* typography.html
+* background.html
+* border.html
+* toast.html
+
+
+////////////////////////////////////////////////////////////////////
+
+3) Improved page breadcrumb (except in index.html)
+
+///////////////////////////////////////////////////////////////////
+
+ please replace pageheader breadcrumb as shown below in all html pages
+
+*************
+Before:-
+*************
+
+<div class="d-flex my-xl-auto right-content">
+	<div class="pr-1 mb-3 mb-xl-0">
+		<button type="button" class="btn btn-info btn-icon mr-2"><i class="mdi mdi-filter-variant"></i></button>
+	</div>
+	<div class="pr-1 mb-3 mb-xl-0">
+		<button type="button" class="btn btn-danger btn-icon mr-2"><i class="mdi mdi-star"></i></button>
+	</div>
+	<div class="pr-1 mb-3 mb-xl-0">
+		<button type="button" class="btn btn-warning  btn-icon mr-2"><i class="mdi mdi-refresh"></i></button>
+	</div>
+	<div class="mb-3 mb-xl-0">
+		<div class="btn-group dropdown">
+			<button type="button" class="btn btn-primary">14 Aug 2019</button>
+			<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" id="dropdownMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end">
+				<a class="dropdown-item" href="#">2015</a>
+				<a class="dropdown-item" href="#">2016</a>
+				<a class="dropdown-item" href="#">2017</a>
+				<a class="dropdown-item" href="#">2018</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+*************
+After:-
+*************
+
+
+<div class="d-flex my-xl-auto right-content">
+	<div class="pr-1  mb-xl-0">
+		<button type="button" class="btn btn-info btn-icon mr-2"><i class="mdi mdi-filter-variant"></i></button>
+	</div>
+	<div class="pr-1  mb-xl-0">
+		<button type="button" class="btn btn-danger btn-icon mr-2"><i class="mdi mdi-star"></i></button>
+	</div>
+	<div class="pr-1  mb-xl-0">
+		<button type="button" class="btn btn-warning  btn-icon mr-2"><i class="mdi mdi-refresh"></i></button>
+	</div>
+	<div class="mb-xl-0">
+		<div class="btn-group dropdown">
+			<button type="button" class="btn btn-primary">14 Aug 2019</button>
+			<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" id="dropdownMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end">
+				<a class="dropdown-item" href="#">2015</a>
+				<a class="dropdown-item" href="#">2016</a>
+				<a class="dropdown-item" href="#">2017</a>
+				<a class="dropdown-item" href="#">2018</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+////////////////////////////////////////////////////////////////////
+
+4) Improved logo link in all html pages for responsive logo
+
+///////////////////////////////////////////////////////////////////
+
+please replace the link as shown below in all html pages
+
+*************
+Before:-
+*************
+
+<a href="index.html"><img src="../../assets/img/brand/favicon.png" class="dark-logo-2" alt="logo"></a>
+
+
+*************
+After:-
+*************
+
+<a href="index.html"><img src="../../assets/img/brand/favicon-white.png" class="dark-logo-2" alt="logo"></a>
+
+
+////////////////////////////////////////////////////////////////////
+
+5) Improved gulp file 
+
+///////////////////////////////////////////////////////////////////
+
+please replace gulp file in your folder
+
+
+////////////////////////////////////////////////////////////////////
+
+6) 3 Levels submenu updated  in both horizontal and vertical
+
+///////////////////////////////////////////////////////////////////
+
+________________________________________________
+
+For horizontal 3level submenu :-
+________________________________________________
+
+***************
+Html code:- 
+**************
+please add below code in your horizontal html pages as shown in fig-1.jpg
+
+<li aria-haspopup="true" class="sub-menu-sub"><a href="#">Submenu</a>
+	<ul class="sub-menu">
+		<li aria-haspopup="true"><a href="#" class="slide-item">Submenu-01</a></li>
+		<li aria-haspopup="true" class="slide-item sub-menu-sub"><a href="#">Submenu-02</a>
+			<ul class="sub-menu">
+				<li aria-haspopup="true"><a href="#" class="slide-item">SubmenuLevel-01</a></li>
+				<li aria-haspopup="true"><a href="#" class="slide-item">SubmenuLevel-02</a></li>
+				<li aria-haspopup="true"><a href="#" class="slide-item">SubmenuLevel-02</a></li>
+			</ul>
+		</li>
+		<li aria-haspopup="true"><a href="form-layouts.html" class="slide-item">Submenu-03</a></li>
+	</ul>
+</li>
+
+
+***************
+ css:-
+**************
+
+please replace scss(assets/scss) and scss-rtl(assets/scss-rtl) folder for horizontal 3 levels submenu 
+
+
+***************
+js:-
+**************
+
+please replace horizontal-menu folder in plugins folder(assets/plugins/horizontal-menu)
+
+
+_____________________________________________________________________________________________________________________________________________________
+
+ 3-submenu levels in Leftmenu-Closed , Leftmenu-hoversubmenu ,Leftmenu-hoversubmenu-style1 ,Leftmenu-Icon ,Leftmenu-Iconoverlay ,Leftmenu-Icontext :-
+_____________________________________________________________________________________________________________________________________________________
+
+
+***************
+Html code:- 
+**************
+please replace  below code in your Leftmenu html pages as shown in fig-2.jpg
+
+	Before:-
+
+		<li class="slide ">
+			<a class="side-menu__item" data-toggle="slide" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 9h14V5H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5S7.83 8.5 7 8.5 5.5 7.83 5.5 7 6.17 5.5 7 5.5zM5 19h14v-4H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z" opacity=".3"/><path d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zm-1 6H5v-4h14v4zm-12-.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm-1 6H5V5h14v4zM7 8.5c.83 0 1.5-.67 1.5-1.5S7.83 5.5 7 5.5 5.5 6.17 5.5 7 6.17 8.5 7 8.5z"/></svg><span class="side-menu__label">Submenus</span><i class="angle fe fe-chevron-down"></i></a>
+			<ul class="slide-menu">
+				<li class="sub-slide">
+					<a class="sub-side-menu__item" data-toggle="sub-slide" href="#"><span class="sub-side-menu__label">Level1</span><i class="sub-angle fe fe-chevron-down"></i></a>
+					<ul class="sub-slide-menu">
+						<li><a class="sub-slide-item" href="#">Level01</a></li>
+						<li><a class="sub-slide-item" href="#">Level02</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+
+
+	After:-
+
+		<li class="slide ">
+			<a class="side-menu__item" data-toggle="slide" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 9h14V5H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5S7.83 8.5 7 8.5 5.5 7.83 5.5 7 6.17 5.5 7 5.5zM5 19h14v-4H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z" opacity=".3"/><path d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zm-1 6H5v-4h14v4zm-12-.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm-1 6H5V5h14v4zM7 8.5c.83 0 1.5-.67 1.5-1.5S7.83 5.5 7 5.5 5.5 6.17 5.5 7 6.17 8.5 7 8.5z"/></svg><span class="side-menu__label">Submenus</span><i class="angle fe fe-chevron-down"></i></a>
+			<ul class="slide-menu">
+				<li><a class="slide-item" href="#">Level1</a></li>
+				<li class="sub-slide">
+					<a class="sub-side-menu__item" data-toggle="sub-slide" href="#"><span class="sub-side-menu__label">Level2</span><i class="sub-angle fe fe-chevron-down"></i></a>
+					<ul class="sub-slide-menu">
+						<li><a class="sub-slide-item" href="#">Level01</a></li>
+						<li><a class="sub-slide-item" href="#">Level02</a></li>
+						<li class="sub-slide-sub">
+							<a class="sub-side-menu__item sub-slide-item" data-toggle="sub-slide-sub" href="#"><span class="sub-side-menu__label">Level03</span><i class="sub-angle fe fe-chevron-down"></i></a>
+							<ul class="sub-slide-menu-sub">
+								<li><a class="sub-slide-item" href="#">Level11</a></li>
+								<li><a class="sub-slide-item" href="#">Level2</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+
+***************
+ css:-
+**************
+
+please replace closed-sidemenu.scss and closed-sidemenu.css for Leftmenu-Closed 
+               sidemenu.scss and sidemenu.css for Leftmenu-Icon & Leftmenu-Iconoverlay
+			   sidemenu1.scss and sidemenu1.css for Leftmenu-Icontext 
+			   sidemenu3.scss and sidemenu3.scss for Leftmenu-hoversubmenu
+			   sidemenu4.scss and sidemenu4.scss for Leftmenu-hoversubmenu-style1
+			   
+in css(assets/css) and css-rtl(assets/css-rtl) folder
+
+
+***************
+js:-
+**************
+
+please replace side-menu folder in plugins folder(assets/plugins/side-menu)
+
+
+______________________________________
+
+ 3-submenu levels in Leftmenu-Toggle:-
+_______________________________________
+
+
+***************
+Html code:- 
+**************
+please add below code in your Leftmenu-Toggle html pages as shown in fig-3.jpg
+
+	Before:-
+		<div class="side-menu p-0">
+			<div class="slide submenu">
+				<a class="side-menu__item" data-toggle="slide" href="#"><span class="side-menu__label">Submenus</span><i class="angle fe fe-chevron-down"></i></a>
+				<ul class="slide-menu submenu-list">
+					<li>
+						<a href="#" class="slide-item">Level01</a>
+					</li>
+					<li>
+						<a href="#" class="slide-item">Level02</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	After:-
+
+		<div class="side-menu p-0">
+			<div class="slide submenu">
+				<a class="side-menu__item" data-toggle="slide" href="#"><span class="side-menu__label">Submenus</span><i class="angle fe fe-chevron-down"></i></a>
+				<ul class="slide-menu submenu-list">
+					<li>
+						<a href="#" class="slide-item">Level01</a>
+					</li>
+					<li>
+						<div class="side-menu p-0">
+							<div class="slide submenu">
+								<a class="side-menu__item" data-toggle="slide" href="#"><span class="side-menu__label">Level02</span><i class="angle fe fe-chevron-down"></i></a>
+								<ul class="slide-menu submenu-list">
+									<li>
+										<a href="#" class="slide-item">Level11</a>
+									</li>
+									<li>
+										<div class="side-menu p-0">
+											<div class="slide submenu">
+												<a class="side-menu__item" data-toggle="slide" href="#"><span class="side-menu__label">Level12</span><i class="angle fe fe-chevron-down"></i></a>
+												<ul class="slide-menu submenu-list">
+													<li>
+														<a href="#" class="slide-item">Level01</a>
+													</li>
+													<li>
+														<a href="#" class="slide-item">Level02</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+***************
+ css:-
+**************
+
+please replace sidemenu-responsive-tabs.scss and sidemenu-responsive-tabs.css in css(assets/css) and css-rtl(assets/css-rtl) folder
+
+
+***************
+js:-
+**************
+
+please replace sidemenu-responsive-tabs folder in plugins folder(assets/plugins/sidemenu-responsive-tabs)

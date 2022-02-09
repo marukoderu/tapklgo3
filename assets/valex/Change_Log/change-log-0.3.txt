@@ -1,0 +1,1168 @@
+﻿VALEX-UPDATE  (08-oct-2020)
+
+Valex template has scss and gulp files if you want to modify this template you should update in scss files for example if you want to change gradient colour.
+Change the colour in .scss file that is in scss folder .after that You need to use command prompt just run the command that is mentioned in the documentation folder (before that make sure that gulp is installed in your system then only it will update in style.css otherwise it shows an error) 
+By using gulp commands the changes have done in scss file will automatically  updated in style.css
+there is no need to update in style.css
+
+if you are not using scss then you can directly update in style.css, not in scss
+
+
+*********************************************************************************************
+
+1)Fixed Ie Issues
+
+2) Added some files in specific plugins
+
+3) updated some js
+
+4) updated some js links in specified pages in rtl
+
+5) Added a line in custom pages both in Ltr and Rtl folders
+
+6) Removed Extra page div and close the page div in specified pages Only in RTL.
+
+7) Removed mcustomscroll both Ltr(only in LEFTMENU pages) &RTL (only in SIDEMENU pages)
+
+8) Updated UI Issues
+
+*********************************************************************************************
+
+////////////////////////////////////////////////////////////////////
+
+1)FixedIe Issues
+
+////////////////////////////////////////////////////////////////////
+
+======================================================================  
+Note: If you are not using scss folder Follow the step:1 , Step:2
+======================================================================
+
+##########
+step:1 :- updated IE in style.css in css folder (assets/css/style.css)
+##########
+please add below css in style.css for ie in css folder (assets/css/style.css)
+
+/*-----IE issues-----*/
+
+*::-ms-backdrop,
+.main-header-center {
+	display: inline-table !important;
+	width: 350px;
+}
+
+*::-ms-backdrop,
+.main-header-center .form-control {
+	padding: 0.5rem 1.5rem;
+}
+
+@media (min-width: 991px) {
+	*::-ms-backdrop,
+	.main-header-right .nav-link.btn-default.btn {
+		margin-top: 10px;
+	}
+}
+
+@media (max-width: 991px) {
+	*::-ms-backdrop,
+	.card-img-top {
+		height: 300px;
+	}
+	*::-ms-backdrop,
+	.main-header-right .nav-link.btn-default.btn {
+		margin-top: 7px;
+	}
+}
+
+*::-ms-backdrop,
+.pricing .list-unstyled li {
+	dispLay: block;
+}
+
+*::-ms-backdrop,
+.main-content-body.main-content-body-mail,
+*::-ms-backdrop,
+.main-content-body.main-content-body-chat {
+	flex: inherit;
+}
+
+*::-ms-backdrop,
+.breadcrumb-3 li,
+*::-ms-backdrop,
+.breadcrumb-4 li {
+	display: inline-block;
+}
+
+*::-ms-backdrop,
+.main-footer {
+	width: 100%;
+	position: relative;
+	bottom: -5px;
+	margin-top: 1.5rem;
+	margin-bottom: -10px;
+	height: inherit !important;
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: auto;
+}
+
+*::-ms-backdrop,
+.horizontalMenucontainer .main-header-left {
+	margin-left: 0 !important;
+}
+
+*::-ms-backdrop,
+.main-content {
+	height: 100%;
+}
+
+*::-ms-backdrop,
+.horizontalMenucontainer .main-footer- {
+	padding-bottom: 10px;
+}
+
+*::-ms-backdrop,
+.media-list.media.d-block {
+	display: inline !important;
+}
+
+*::-ms-backdrop,
+.chat .action-header {
+	padding: 10px 13px 1px 17px;
+}
+
+*::-ms-backdrop,
+.sidebar-mini .main-header-left .btn {
+	margin-left: 60px;
+	left: 250px;
+}
+
+*::-ms-backdrop,
+.sidebar-mini .main-content.app-content .main-header-left {
+	margin-left: 0;
+}
+
+*::-ms-backdrop,
+.sidebar.sidebar-open {
+	z-index: 9999 !important;
+}
+
+*::-ms-backdrop,
+.p-4.border-bottom {
+	height: 100%;
+}
+
+*::-ms-backdrop,
+.img-fluid,
+*::-ms-backdrop,
+.table,
+*::-ms-backdrop,
+.text-wrap table {
+	max-width: 100%;
+}
+
+*::-ms-backdrop,
+.sidebar {
+	z-index: 0 !important;
+}
+
+*::-ms-backdrop,
+.d-block.media.media-list {
+	display: inline !important;
+}
+
+*::-ms-backdrop,
+.main-header-message>a,
+*::-ms-backdrop,
+.main-header-notification>a,
+*::-ms-backdrop,
+.full-screen.nav-item>a,
+*::-ms-backdrop,
+.fullscreen-button .full-screen-link {
+	line-height: 49px !important;
+}
+
+*::-ms-backdrop,
+.datetimepicker table th.prev span,
+*::-ms-backdrop,
+.datetimepicker table th.next span {
+	top: 20px;
+}
+
+*::-ms-backdrop,
+.datetimepicker table th.next {
+	border-top-right-radius: 0;
+}
+
+*::-ms-backdrop,
+.datetimepicker table th.prev {
+	border-top-left-radius: 0;
+}
+
+*::-ms-backdrop,
+.main-header-center .btn,
+*::-ms-backdrop,
+.main-header-center .sp-container button,
+*::-ms-backdrop,
+.sp-container .main-header-center button {
+	top: 0;
+}
+
+@media (min-width: 992px) {
+	*::-ms-backdrop,
+	.sidebar-mini .main-header-left {
+		margin-left: 80px;
+	}
+	*::-ms-backdrop,
+	.sidebar-mini .main-header .main-header-left .header-brand {
+		margin-right: 80px;
+		width: auto;
+	}
+	*::-ms-backdrop,
+	.card-img-top {
+		height: 250px;
+	}
+}
+
+*::-ms-backdrop,
+.btn-icon-list .btn {
+	display: table;
+	vertical-align: middle;
+	text-align: center;
+	margin-right: 10px;
+}
+
+*::-ms-backdrop,
+.side-badge {
+	top: 14px;
+}
+
+*::-ms-backdrop,
+.media.d-sm-flex {
+	display: initial;
+}
+
+*::-ms-backdrop,
+.btn,
+.sp-container button {
+	padding: 8.5px;
+}
+
+*::-ms-backdrop,
+.page-h {
+	height: 100%;
+}
+
+*::-ms-backdrop,
+p {
+	font-size: 13px;
+}
+
+*::-ms-backdrop,
+.breadcrumb-right .btn {
+	padding: 0.4rem 1rem;
+}
+
+*::-ms-backdrop,
+.horizontalMenucontainer .main-footer {
+	padding-bottom: 10px;
+}
+
+*::-ms-backdrop,
+.media-list.media.d-sm-flex {
+	display: initial;
+}
+
+*::-ms-backdrop,
+.main-msg-wrapper {
+	display: inline-table;
+}
+
+*::-ms-backdrop,
+.p-text .p-name {
+	display: block;
+}
+
+*::-ms-backdrop,
+.sidebar .tab-menu-heading {
+	position: absolute !important;
+}
+
+*::-ms-backdrop,
+.card--calendar .ui-datepicker-inline {
+	border-width: 1px !important;
+}
+
+*::-ms-backdrop,
+.fc-datepicker.main-datepicker.hasDatepicker {
+	border-right: 0 !important;
+	border-top: 0 !important;
+	border-bottom: 0 !important;
+}
+
+*::-ms-backdrop,
+.second-sidemenu .resp-tabs-container .slide-menu.submenu-list li {
+	display: flex;
+}
+
+@media (min-width: 992px) {
+	*::-ms-backdrop,
+	.pulse-danger,
+	*::-ms-backdrop,
+	.pulse {
+		top: 13px;
+	}
+	*::-ms-backdrop,
+	.card.custom-card .box {
+		position: static;
+	}
+	*::-ms-backdrop,
+	.thumb .thumb-img {
+		height: 139px;
+	}
+	*::-ms-backdrop,
+	.main-chat-body .media-body .main-msg-wrapper.right,
+	*::-ms-backdrop,
+	.main-chat-body .media-body .main-msg-wrapper.left {
+		display: inline-table;
+	}
+	*::-ms-backdrop,
+	.main-dashboard-header-right>div:first-child {
+		flex-basis: 150px;
+	}
+	*::-ms-backdrop,
+	.tasks .ckbox {
+		margin-right: 10px;
+	}
+	*::-ms-backdrop,
+	.app-sidebar__toggle {
+		margin-right: 30px !important;
+	}
+	*::-ms-backdrop,
+	.product-details.table-responsive.text-nowrap .media-body {
+		flex: none;
+	}
+}
+
+@media (min-width: 767px) {
+	*::-ms-backdrop,
+	.bg-primary-transparent .row.wd-100p.mx-auto.text-center {
+		margin-top: 4rem;
+	}
+	*::-ms-backdrop,
+	.login.d-flex.align-items-center.py-2 {
+		margin-top: 7rem;
+	}
+}
+
+@media (max-width: 767px) {
+	*::-ms-backdrop,
+	.dropdown.nav-item.main-header-message,
+	*::-ms-backdrop,
+	.dropdown.nav-item.main-header-notification,
+	*::-ms-backdrop,
+	.dropdown.main-header-message.right-toggle {
+		margin-top: 7px !important;
+	}
+	*::-ms-backdrop,
+	.main-header-left .responsive-logo {
+		margin-left: 40px !important;
+	}
+	*::-ms-backdrop,
+	.sidebar-mini .main-header .main-header-left .header-brand {
+		margin-left: 30px;
+	}
+}
+
+*::-ms-backdrop,
+html.fullscreen-button {
+	width: 100%;
+}
+
+*::-ms-backdrop,
+html.fullscreen-button .main-content,
+*::-ms-backdrop,
+html.fullscreen-button .app-content {
+	overflow: scroll;
+	overflow-x: hidden;
+	height: 100vh;
+}
+
+*::-ms-backdrop,
+.error-page1 {
+	-ms-overflow-y: hidden;
+}
+
+*::-ms-backdrop,
+#list1 .avatar-md {
+	width: inherit !important;
+}
+
+*::-ms-backdrop,
+#list3 .mr-4 {
+	margin-right: 0 !important;
+}
+
+*::-ms-backdrop,
+.app-sidebar .slide .side-menu__item.active::before {
+	top: 0;
+}
+
+*::-ms-backdrop,
+.tab-content.border-bottom.p-4 {
+	height: inherit !important;
+}
+
+*::-ms-backdrop,
+.datetimepicker table th.prev span,
+*::-ms-backdrop,
+.datetimepicker table th.next span {
+	top: 20px !important;
+}
+
+@media (min-width: 1025px) {
+	*::-ms-backdrop,
+	.btn,
+	.sp-container button {
+		padding: 12px;
+	}
+}
+
+
+
+ 
+##########
+step:2 :- updated IE in style.css in css-rtl folder (assets/css-rtl/style.css)
+##########
+please add below css in style.css for ie in css-rtl folder (assets/css-rtl/style.css)
+
+/*-----IE issues-----*/
+
+*::-ms-backdrop,
+.main-header-center {
+	display: inline-table !important;
+	width: 350px;
+}
+
+*::-ms-backdrop,
+.main-header-center .form-control {
+	padding: 0.5rem 1.5rem;
+}
+
+@media (min-width: 992px) {
+	*::-ms-backdrop,
+	.sidebar-mini .main-header-left {
+		margin-right: 80px;
+	}
+	*::-ms-backdrop,
+	.sidebar-mini .main-header .main-header-left .header-brand {
+		margin-left: 80px;
+		width: auto;
+	}
+	*::-ms-backdrop,
+	.card-img-top {
+		height: 250px;
+	}
+}
+
+*::-ms-backdrop,
+.main-content-body.main-content-body-mail,
+*::-ms-backdrop,
+.main-content-body.main-content-body-chat {
+	flex: inherit;
+}
+
+*::-ms-backdrop,
+.side-badge {
+	top: 14px;
+}
+
+*::-ms-backdrop,
+.breadcrumb-3 li,
+*::-ms-backdrop,
+.breadcrumb-4 li {
+	display: inline-block;
+}
+
+*::-ms-backdrop,
+.page-h {
+	height: 100%;
+}
+
+*::-ms-backdrop,
+p {
+	font-size: 13px;
+}
+
+*::-ms-backdrop,
+.breadcrumb-right .btn {
+	padding: 0.4rem 1rem;
+}
+
+*::-ms-backdrop,
+.main-content {
+	height: 100%;
+}
+
+*::-ms-backdrop,
+.horizontalMenucontainer .main-footer- {
+	padding-bottom: 10px;
+}
+
+*::-ms-backdrop,
+.media-list.media.d-sm-flex {
+	display: initial;
+}
+
+*::-ms-backdrop,
+.chat .action-header {
+	padding: 10px 13px 1px 17px;
+}
+
+*::-ms-backdrop,
+.sidebar-mini .main-header-left .btn {
+	margin-right: 60px;
+	right: 250px;
+}
+
+*::-ms-backdrop,
+.sidebar-mini .main-content.app-content .main-header-left {
+	margin-right: 0;
+}
+
+*::-ms-backdrop,
+.sidebar.sidebar-open {
+	z-index: 9999 !important;
+}
+
+*::-ms-backdrop,
+.p-4.border-bottom {
+	height: 100%;
+}
+
+*::-ms-backdrop,
+.img-fluid,
+*::-ms-backdrop,
+.table,
+*::-ms-backdrop,
+.text-wrap table {
+	max-width: 100%;
+}
+
+*::-ms-backdrop,
+.sidebar {
+	z-index: 0 !important;
+}
+
+*::-ms-backdrop,
+.d-block.media.media-list {
+	display: inline !important;
+}
+
+*::-ms-backdrop,
+.main-header-message>a,
+*::-ms-backdrop,
+.main-header-notification>a,
+*::-ms-backdrop,
+.full-screen.nav-item>a,
+*::-ms-backdrop,
+.fullscreen-button .full-screen-link {
+	line-height: 49px !important;
+}
+
+*::-ms-backdrop,
+.datetimepicker table th.prev span,
+*::-ms-backdrop,
+.datetimepicker table th.next span {
+	top: 20px !important;
+}
+
+*::-ms-backdrop,
+.datetimepicker table th.next {
+	border-top-right-radius: 0;
+}
+
+*::-ms-backdrop,
+.datetimepicker table th.prev {
+	border-top-left-radius: 0;
+}
+
+*::-ms-backdrop,
+.main-header-center .btn,
+*::-ms-backdrop,
+.main-header-center .sp-container button,
+*::-ms-backdrop,
+.sp-container .main-header-center button {
+	top: 0;
+}
+
+@media (min-width: 991px) {
+	*::-ms-backdrop,
+	.main-header-right .nav-link.btn-default.btn {
+		margin-top: 10px;
+	}
+}
+
+@media (max-width: 991px) {
+	*::-ms-backdrop,
+	.card-img-top {
+		height: 300px;
+	}
+	*::-ms-backdrop,
+	.main-header-right .nav-link.btn-default.btn {
+		margin-top: 3px;
+	}
+}
+
+*::-ms-backdrop,
+.btn-icon-list .btn {
+	display: table;
+	vertical-align: middle;
+	text-align: center;
+	margin-right: 10px;
+}
+
+*::-ms-backdrop,
+.pricing .list-unstyled li {
+	dispLay: block;
+}
+
+*::-ms-backdrop,
+.main-footer {
+	width: 100%;
+	position: relative;
+	bottom: -5px;
+	margin-top: 1.5rem;
+	margin-bottom: -10px;
+	height: inherit !important;
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: auto;
+}
+
+*::-ms-backdrop,
+.media.d-sm-flex {
+	display: initial;
+}
+
+*::-ms-backdrop,
+.btn,
+.sp-container button {
+	padding: 8.5px;
+}
+
+*::-ms-backdrop,
+.horizontalMenucontainer .main-header-left {
+	margin-left: 0;
+}
+
+*::-ms-backdrop,
+.media-list.media.d-block {
+	display: inline !important;
+}
+
+*::-ms-backdrop,
+.main-msg-wrapper {
+	display: inline-table;
+}
+
+*::-ms-backdrop,
+.p-text .p-name {
+	display: block;
+}
+
+*::-ms-backdrop,
+.sidebar .tab-menu-heading {
+	position: absolute !important;
+}
+
+*::-ms-backdrop,
+.card--calendar .ui-datepicker-inline {
+	border-width: 1px !important;
+}
+
+*::-ms-backdrop,
+.fc-datepicker.main-datepicker.hasDatepicker {
+	border-right: 0 !important;
+	border-top: 0 !important;
+	border-bottom: 0 !important;
+}
+
+*::-ms-backdrop,
+.second-sidemenu .resp-tabs-container .slide-menu.submenu-list li {
+	display: flex;
+}
+
+@media (min-width: 992px) {
+	*::-ms-backdrop,
+	.pulse-danger,
+	*::-ms-backdrop,
+	.pulse {
+		top: 13px;
+	}
+	*::-ms-backdrop,
+	.card.custom-card .box {
+		position: static;
+	}
+	*::-ms-backdrop,
+	.thumb .thumb-img {
+		height: 139px;
+	}
+	*::-ms-backdrop,
+	.main-chat-body .media-body .main-msg-wrapper.right,
+	*::-ms-backdrop,
+	.main-chat-body .media-body .main-msg-wrapper.left {
+		display: inline-table;
+	}
+	*::-ms-backdrop,
+	.main-dashboard-header-right>div:first-child {
+		flex-basis: 150px;
+	}
+	*::-ms-backdrop,
+	.tasks .ckbox {
+		margin-left: 10px;
+	}
+	*::-ms-backdrop,
+	.app-sidebar__toggle {
+		margin-left: 30px !important;
+	}
+	*::-ms-backdrop,
+	.product-details.table-responsive.text-nowrap .media-body {
+		flex: none;
+	}
+	*::-ms-backdrop,
+	.main-star span {
+		margin-right: 0;
+	}
+	*::-ms-backdrop,
+	.ml-3.tx-16.my-auto {
+		margin-right: 1rem !important;
+	}
+}
+
+@media (min-width: 767px) {
+	*::-ms-backdrop,
+	.bg-primary-transparent .row.wd-100p.mx-auto.text-center {
+		margin-top: 4rem;
+	}
+	*::-ms-backdrop,
+	.login.d-flex.align-items-center.py-2 {
+		margin-top: 7rem;
+	}
+}
+
+@media (max-width: 767px) {
+	*::-ms-backdrop,
+	.dropdown.nav-item.main-header-message,
+	*::-ms-backdrop,
+	.dropdown.nav-item.main-header-notification,
+	*::-ms-backdrop,
+	.dropdown.main-header-message.right-toggle {
+		margin-top: 7px !important;
+	}
+	*::-ms-backdrop,
+	.main-header-left .responsive-logo {
+		margin-right: 40px !important;
+	}
+}
+
+*::-ms-backdrop,
+.main-body {
+	-ms-overflow-x: hidden;
+}
+
+*::-ms-backdrop,
+.error-page1 {
+	-ms-overflow-y: hidden;
+}
+
+*::-ms-backdrop,
+.datetimepicker table th.next span::before,
+*::-ms-backdrop,
+.datetimepicker table th.prev span::before {
+	top: 20px !important;
+}
+
+*::-ms-backdrop,
+.main-header-right .nav .dropdown.nav-itemd-none .dropdown-menu img {
+	width: 100%;
+}
+
+*::-ms-backdrop,
+.br-theme-bars-pill .br-widget a:last-child {
+	border-top-left-radius: 999px;
+	border-bottom-left-radius: 999px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+*::-ms-backdrop,
+.br-theme-bars-pill .br-widget a:first-child {
+	border-top-right-radius: 999px;
+	border-bottom-right-radius: 999px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+*::-ms-backdrop,
+#list1 .avatar-md {
+	width: inherit !important;
+}
+
+*::-ms-backdrop,
+#list3 .ml-4 {
+	margin-left: 0 !important;
+}
+
+*::-ms-backdrop,
+html.fullscreen-button {
+	width: 100%;
+}
+
+*::-ms-backdrop,
+html.fullscreen-button .horizontal-content,
+*::-ms-backdrop,
+html.fullscreen-button .app-content {
+	overflow: scroll;
+	overflow-x: hidden;
+	height: 100vh;
+	direction: rtl;
+}
+
+*::-ms-backdrop,
+.app-sidebar .slide .side-menu__item.active::before {
+	top: 0;
+}
+
+*::-ms-backdrop,
+.tab-content.border-bottom.p-4 {
+	height: inherit !important;
+}
+
+@media (min-width: 1025px) {
+	*::-ms-backdrop,
+	.btn,
+	.sp-container button {
+		padding: 12px;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	*::-ms-backdrop,
+	.app-sidebar__toggle {
+		margin-left: 2rem !important;
+	}
+}
+
+======================================================================
+Note: If you are using scss folder Follow the step:3 , Step:4 ,step:5
+======================================================================
+
+##########
+step:3 :- Add _Ie.scss file in both LTR version and RTL version
+###########
+
+	For LTR Version:-(assets\scss\custom\_ie.scss)
+	
+	For RTL Version:-(assets\scss-rtl\custom\_ie.scss)
+	
+##########
+step:4 :- import ie.scss in both LTR version and RTL version
+###########
+
+please add below line in scss(assets\scss\style.scss) and scss-rtl (assets\scss-rtl\style.scss)file.
+
+/*  ######## CUSTOM-STYLES ######## */ 
+    @import "custom/Ie";
+	
+	
+##########
+step:5 :- 
+###########
+
+Open cmd prompt and run below commands:
+
+gulp watch
+
+gulp watch-rtl
+
+Please check the documentation to know about gulp commands in detail
+
+////////////////////////////////////////////////////////////////////
+
+2)Added some files in specific plugins
+
+////////////////////////////////////////////////////////////////////
+
+please add below mentioned files in plugins folder
+
+added files :- 
+
+1) multislider-rtl (assets\plugins\multislider)
+2) notify-rtl (assets\plugins\notify\js)
+3) In perfect-scrollbar plugin we have added new css and js files 
+ js:- (perfect-scrollbar.min-rtl,p-scroll-rtl)
+ css:-(p-scrollbar,p-scrollbar-rtl)
+
+////////////////////////////////////////////////////////////////////
+
+3)updated some js
+
+////////////////////////////////////////////////////////////////////
+
+please update below mentioned js 
+
+updated js :- custom, chart.chartjs, apexcharts ,index
+
+
+////////////////////////////////////////////////////////////////////
+
+4) updated some js links in Rtl Version
+
+///////////////////////////////////////////////////////////////////
+
+##########
+step:1 :- update pscroll js link in all pages in Rtl version 
+##########
+
+Before :-
+		<!-- P-scroll js -->
+		<script src="../../assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+		<script src="../../assets/plugins/perfect-scrollbar/p-scroll.js"></script>
+		
+		
+After :-
+		<!-- P-scroll js -->
+		<script src="../../assets/plugins/perfect-scrollbar/perfect-scrollbar.min-rtl.js"></script>
+		<script src="../../assets/plugins/perfect-scrollbar/p-scroll-rtl.js"></script>
+
+		
+		
+##########
+step:2 :- update Multislider js link in carousel.html page in Rtl version
+##########
+
+Before :-
+		<!---Internal  Multislider js-->
+		<script src="../../assets/plugins/multislider/multislider.js"></script>
+		<script src="../../assets/js/carousel.js"></script>
+		
+		
+After :-
+		<!---Internal  Multislider js-->
+		<script src="../../assets/plugins/multislider/multislider-rtl.js"></script>
+		<script src="../../assets/js/carousel.js"></script>
+		
+		
+##########
+step:3 :- update Notify js link in notification.html page in Rtl version 
+##########
+
+Before :-
+		<!--Internal  Notify js -->
+		<script src="../../assets/plugins/notify/js/notifIt.js"></script>
+		<script src="../../assets/plugins/notify/js/notifit-custom.js"></script>
+		
+		
+After :-
+		<!--Internal  Notify js -->
+		<script src="../../assets/plugins/notify/js/notifIt-rtl.js"></script>
+		<script src="../../assets/plugins/notify/js/notifit-custom.js"></script>
+
+		
+////////////////////////////////////////////////////////////////////
+
+5)Added a line in custom pages both in Ltr and Rtl folders
+
+///////////////////////////////////////////////////////////////////
+please add in below mentioned Pages 
+
+updated Pages :- signin.html,singup.html,lockscreen.html,reset.html,forgot.html,underconstruction.html,404.html,500.html.
+
+##########
+step:1 :- add error-page1 
+##########
+
+Before :-
+		<body class="main-body">
+			
+After :-
+		<body class="error-page1 main-body">
+	
+				
+///////////////////////////////////////////////////////////////////////////////
+
+6)Removed Extra page div and close the page div in specified pages only in Rtl.
+
+///////////////////////////////////////////////////////////////////////////////
+There is an duplicate page div  i.e (<div class="page">) in some pages instead for closing that page div again there is (<div class="page">) Page div was opened thats why in some page we are getting issue to fix issue follow the image or below steps
+
+please change only in specified pages 
+
+updated Pages :- border.html,chart-chartjs.html,chart-echart.html
+
+##########
+step:1 :- Remove extra page div and  close page div
+##########
+
+ please refer image 001.jpg 
+ 
+Before :-
+		<!-- Footer opened -->
+			<div class="main-footer ht-40">
+				<div class="container-fluid pd-t-0-f ht-100p">
+					<span>Copyright © 2020 <a href="#">Valex</a>. Designed by <a href="https://www.spruko.com/">Spruko</a> All rights reserved.</span>
+				</div>
+			</div>
+		<!-- Footer closed -->
+
+		<!-- Page -->
+		<div class="page">
+		
+After :-
+		<!-- Footer opened -->
+			<div class="main-footer ht-40">
+				<div class="container-fluid pd-t-0-f ht-100p">
+					<span>Copyright © 2020 <a href="#">Valex</a>. Designed by <a href="https://www.spruko.com/">Spruko</a> All rights reserved.</span>
+				</div>
+			</div>
+		<!-- Footer closed -->
+
+	</div>
+	<!-- End Page -->
+	
+//////////////////////////////////////////////////////////////////////////////////////		
+
+7)Removed mcustomscroll both Ltr(only in LEFTMENU pages) &RTL (only in SIDEMENU pages)
+
+//////////////////////////////////////////////////////////////////////////////////////	
+ 
+ we have changed mscrollbar to pscrollbar for Ltr(only in LEFTMENU pages) &RTL (only in SIDEMENU pages) .so, please follow the below steps
+
+
+##########
+step:1 :- please remove mscroll and replace with pscroll in sidemenu.js in plugins (assets/plugins/side-menu/sidemenu.js)
+##########
+
+Remove :-
+		
+	//mCustomScrollbar
+	$(".main-sidemenu").mCustomScrollbar({
+		theme:"minimal",
+		autoHideScrollbar: true,
+		scrollbarPosition: "outside"
+	});
+		
+Replace :-
+		
+	//P-scrolling
+	const ps = new PerfectScrollbar('.app-sidebar', {
+	  useBothWheelAxes:true,
+	  suppressScrollX:true,
+	});
+
+##########
+step:2 :- please remove mscroll css and replace with pscroll css in all leftmenu and sidemenu page both in Ltr and Rtl pages
+##########
+
+Remove :-
+		
+		<!--- Custom-scroll -->
+		<link href="../../assets/plugins/custom-scroll/jquery.mCustomScrollbar.css" rel="stylesheet">
+		<!--  Custom Scroll bar-->
+		<link href="../../assets/plugins/mscrollbar/jquery.mCustomScrollbar.css" rel="stylesheet"/>
+		
+Replace :-
+		
+		<!-- P-scroll bar css-->
+		<link href="../../assets/plugins/perfect-scrollbar/p-scrollbar.css" rel="stylesheet" />
+
+##########
+step:3 :- please remove mscroll js in all leftmenu and sidemenu page both in Ltr and Rtl pages
+##########
+
+Remove :-
+
+		<!-- Internal Jquery.mCustomScrollbar js-->
+		<script src="../../assets/plugins/custom-scroll/jquery.mCustomScrollbar.concat.min.js"></script>
+		<!-- Custom Scroll bar Js-->
+		<script src="../../assets/plugins/mscrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+		
+
+	
+////////////////////
+
+8)Updated UI Issues
+
+////////////////////
+
+
+======================================================================  
+Note: If you are not using scss folder Follow the step:1 , Step:2
+======================================================================
+
+##########
+step:1 :- updated css in style.css in css folder (assets/css/style.css)
+##########
+
+please add below css in style.css in css folder (assets/css/style.css)
+
+Added:-
+			.btn-outline-danger:focus {
+				background:#ee335e;
+			}
+
+##########
+step:2 :- updated css in style.css in css-rtl folder (assets/css-rtl/style.css)
+##########
+
+please add below css in style.css in css-rtl folder (assets/css-rtl/style.css)
+
+Added:-
+			.datetimepicker table th.next span::before {
+				content: '\f3cf' !important;
+			}
+			.datetimepicker table th.prev span::before {
+				content: '\f3d1' !important;
+			}
+
+			
+			
+======================================================================
+Note: If you are using scss folder Follow the step:3 , Step:4 ,step:5
+======================================================================
+
+##########
+step:3 :- Add below css in custom-styles.scss file 
+###########
+
+please add below css in  custom-styles in scss folder (assets/scss/custom)
+
+Added:-
+			.btn-outline-danger:focus {
+				background:#ee335e;
+			}
+	
+##########
+step:4 :- Add below css in custom-styles.scss file
+###########
+
+Added:-
+			.datetimepicker table th.next span::before {
+				content: '\f3cf' !important;
+			}
+			.datetimepicker table th.prev span::before {
+				content: '\f3d1' !important;
+			}
+	
+##########
+step:5 :- 
+###########
+
+Open cmd prompt and run below commands:
+
+gulp watch
+
+gulp watch-rtl
+
+Please check the documentation to know about gulp commands in detail

@@ -1,0 +1,44 @@
+{{define "register"}}
+{{template "templates/layouts/auth/header/auth-header"}}
+
+<div class="container-fluid mainlay">
+    <div class="row mainrow">
+        <div class="col-md-12 maincol">
+            <div class="authlay">
+                <div class="authform">
+                    <div class="formhead">
+                        <h3>DASHBOARD TUGAS HARIAN<br>SISWA PRAKERIN PT BIT</h3>
+                        <hr style="color: black">
+                        <h5>Register</h5>
+                        <hr style="color: black">
+                    </div>
+                    <form action="/register/process" method="post">
+                        <div class="form-outline">
+                            <div class="mb-3">
+                                <label for="name" class="form-label text-white">Name</label>
+                                <input type="text" class="form-control" name="name" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label text-white">Email</label>
+                                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label text-white">Password</label>
+                                <input type="password" class="form-control" name="password" id="password" required>
+                            </div>
+                            <div class="mb-3 mauregis">
+                                <p><a href="/login">Sudah punya akun? klik ini</a></p>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-block btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{template "templates/layouts/auth/footer/auth-footer"}}
+{{end}}

@@ -1,0 +1,73 @@
+
+
+{{define "pengumuman"}}
+{{template "templates/layouts/siswa/header/siswadash-headerTugas" .}}
+{{template "templates/layouts/siswa/navDashS" .}}
+
+    <!-- container -->
+    <div class="container-fluid">
+
+        <!-- breadcrumb -->
+        <div class="breadcrumb-header justify-content-between">
+            <div class="left-content">
+                <div>
+                  <h2 class="main-content-title tx-34 mg-b-1 mg-b-lg-1">Halaman List Pengumuman</h2>
+                  <p class="tx-20 mg-b-0">Kamu bisa melihat daftar pengumuman ^^</p>
+                </div>
+            </div>
+        </div>
+        <!-- /breadcrumb -->
+
+
+        <!-- row opened -->
+        <div class="row row-sm">
+            <!--div-->
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="card mg-b-20">
+                    <div class="card-header pb-0">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title mg-b-0">List Pengumuman PKL</h4>
+                        </div>
+                        <p class="tx-12 tx-gray-500 mb-2">Berikut ini adalah daftar pengumuman pkl saat ini</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example" class="table key-buttons text-md-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th class="wd-lg-10p border-bottom-0">Tanggal</th>
+                                        <th class="wd-lg-10p border-bottom-0">Judul</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Isi</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Divisi</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Pembuat</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{range .pengumumans}}
+                                    <tr>
+                                        <td class="align-middle">{{.Date}}</td>
+                                        <td class="align-middle">{{.Judul}}</td>
+                                        <td class="tx-left tx-medium tx-inverse align-middle">{{.Isi}}</td>
+                                        <td class="tx-left tx-medium tx-inverse align-middle">{{.Divisi}}</td>
+                                        <td class="tx-left tx-medium tx-inverse align-middle">{{.Name}}</td>
+                                    </tr>
+                                    {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/div-->
+
+        </div>
+        <!-- row closed -->
+
+       
+    </div>
+    <!-- /Container -->
+</div>
+<!-- /main-content -->
+{{template "templates/layouts/siswa/footer/siswadash-footerTugas"}}
+{{end}}
+

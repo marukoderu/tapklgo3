@@ -1,0 +1,238 @@
+
+
+{{define "siswa"}}
+{{template "templates/layouts/staff/header/staffdash-headerTugas" .}}
+{{template "templates/layouts/staff/navDashSt" .}}
+
+    <!-- container -->
+    <div class="container-fluid">
+
+        <!-- breadcrumb -->
+        <div class="breadcrumb-header justify-content-between">
+            <div class="left-content">
+                <div>
+                  <h2 class="main-content-title tx-34 mg-b-1 mg-b-lg-1">Halaman List Siswa PRAKERIN</h2>
+                  <p class="tx-20 mg-b-0">Kamu bisa melihat daftar siswa yang sedang PRAKERIN ^^</p>
+                </div>
+            </div>
+            <div class="main-dashboard-header-right">
+
+            </div>
+        </div>
+        <!-- /breadcrumb -->
+
+        <!-- row -->
+        <div class="row row-sm">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-xm-12">
+                <div class="card overflow-hidden sales-card bg-primary-gradient">
+                    <div class="pl-3 pt-5 pr-3 pb-5 pt-0">
+                        <div class="">
+                            <h6 class="mb-3 tx-16 text-white">SISWA AKTIF</h6>
+                        </div>
+                        <div class="pb-0 mt-0">
+                            <div class="d-flex">
+                                <div class="">
+                                    <h4 class="tx-20 font-weight-bold mb-1 text-white">
+                                        {{if eq .siswa_aktif 0}}
+                                        0
+                                        {{else if gt .siswa_aktif 0}}
+                                            {{.siswa_aktif}}
+                                        {{end}}
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-xm-12">
+                <div class="card overflow-hidden sales-card bg-danger-gradient">
+                    <div class="pl-3 pt-5 pr-3 pb-5 pt-0">
+                        <div class="">
+                            <h6 class="mb-3 tx-16 text-white">SISWA TIDAK AKTIF</h6>
+                        </div>
+                        <div class="pb-0 mt-0">
+                            <div class="d-flex">
+                                <div class="">
+                                    <h4 class="tx-20 font-weight-bold mb-1 text-white">
+                                        {{if eq .siswa_inaktif 0}}
+                                        0
+                                        {{else if gt .siswa_inaktif 0}}
+                                            {{.siswa_inaktif}}
+                                        {{end}}
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row closed -->
+
+        <!-- row opened -->
+        <div class="row row-sm">
+            <!--div-->
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="card mg-b-20">
+                    <div class="card-header pb-0">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title mg-b-0">List Siswa PRAKERIN</h4>
+                        </div>
+                        <p class="tx-12 tx-gray-500 mb-2">Berikut ini adalah daftar siswa pkl saat ini</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example" class="table key-buttons text-md-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th class="wd-lg-10p border-bottom-0">UserID</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Date</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Name</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Email</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Divisi</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Level</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{range .users}}
+                                    <tr>
+                                        <td class="align-middle">{{.Id}}</td>
+                                        <td class="tx-left tx-medium tx-inverse align-middle">{{.Date}}</td>
+                                        <td class="tx-left tx-medium tx-inverse align-middle">{{.Name}}</td>
+                                        <td class="tx-left tx-medium tx-inverse align-middle">{{.Email}}</td>
+                                        <td class="tx-left tx-medium tx-inverse align-middle">{{.Divisi}}</td>
+                                        {{if eq .Level "0"}}
+                                            <td class="tx-left tx-medium tx-danger align-middle">Siswa (Inactive)</td>
+                                        {{else}}
+                                            <td class="tx-left tx-medium tx-primary align-middle">Siswa (Active)</td>
+                                        {{end}}
+                                        <td>
+                                            <a class="modal-effect btn btn-md btn-warning btn-block btn-middle" data-effect="effect-slide-in-right" data-toggle="modal" href="#siswaedit{{.Id}}">Edit</a>
+                                            {{if eq .Level "0"}}
+                                            <a class="btn btn-md btn-primary btn-block btn-middle" href="/dashboard/staff/siswa/active?id={{.Id}}">Active</a>
+                                            {{else if eq .Level "1"}}
+                                            <a class="btn btn-md btn-danger btn-block btn-middle" href="/dashboard/staff/siswa/inactive?id={{.Id}}">Inactive</a>
+                                            {{end}}
+                                            <a class="btn btn-md btn-danger btn-block btn-middle" href="/dashboard/staff/siswa/delete?id={{.Id}}" onclick="return confirm('Yakin untuk menghapus ?');">Delete</a>
+                                        </td>
+                                    </tr>
+                                    {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <a class="user-c-laporan modal-effect"  data-effect="effect-slide-in-right" data-toggle="modal" href="#tambahsiswa"><button class="btn btn-primary btn-block align-middle">Tambah Siswa</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/div-->
+
+        </div>
+        <!-- row closed -->
+
+
+        <!-- Modal effects -->
+			<div class="modal" id="tambahsiswa">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content modal-content-demo">
+                        <form action="/dashboard/staff/siswa/create" method="POST" class="form-horizontal" >
+                            <div class="modal-header">
+                                <h6 class="modal-title">Tambah Siswa</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="name">Nama Siswa</label>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Nama">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email Siswa</label>
+                                        <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="*****">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="divisi">Divisi</label>
+                                        <select class="form-control select2-no-search" id="divisi" name="divisi">
+                                            <option label="Pilih Divisi">
+                                            </option>
+                                            <option value="Web Apps">Web Apps</option>
+                                            <option value="Mobile Apps">Mobile Apps</option>
+                                            <option value="SysAdmin">SysAdmin</option>
+                                            <option value="Cloud & Big Data">Cloud & Big Data</option>
+                                        </select>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn ripple btn-primary" type="submit">Tambah</button>
+                                <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
+                            </div>
+                        </form>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal effects-->
+
+
+        {{range .users}}
+        <!-- Modal effects -->
+			<div class="modal" id="siswaedit{{.Id}}">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content modal-content-demo">
+                        <form action="/dashboard/staff/siswa/update" method="POST" class="form-horizontal" >
+                            <div class="modal-header">
+                                <h6 class="modal-title">Edit Siswa</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{.Id}}">
+                                    <div class="form-group">
+                                        <label for="name">Nama Siswa</label>
+                                        <input type="text" class="form-control" id="name" name="name" value="{{.Name}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email Siswa</label>
+                                        <input type="text" class="form-control" id="email" name="email" value="{{.Email}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="divisi">Divisi</label>
+                                        <select class="form-control select2-no-search" id="divisi" name="divisi">
+                                            <option value="{{.Divisi}}">
+                                                {{.Divisi}}
+                                            </option>
+                                            <option value="Web Apps">Web Apps</option>
+                                            <option value="Mobile Apps">Mobile Apps</option>
+                                            <option value="SysAdmin">SysAdmin</option>
+                                            <option value="Cloud & Big Data">Cloud & Big Data</option>
+                                        </select>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn ripple btn-primary" type="submit">Save</button>
+                                <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
+                            </div>
+                        </form>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal effects-->
+            {{end}}
+
+       
+    </div>
+    <!-- /Container -->
+</div>
+<!-- /main-content -->
+{{template "templates/layouts/staff/footer/staffdash-footerTugas"}}
+{{end}}
+

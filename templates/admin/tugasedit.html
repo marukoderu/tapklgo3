@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    
+    <h1>Dashboard - Tugas Management</h1>
+
+    <hr>
+
+    <div>
+        <form action="/dashboard/admin/tugas/update" method="POST">
+            <label for="judul">Judul:</label><br>
+            <input type="text" id="judul" name="judul" value="{{.tugas.Judul}}"><br>
+
+            <label for="isi">Isi:</label><br>
+            <input type="text" id="isi" name="isi" value="{{.tugas.Isi}}"><br>
+
+            <input type="hidden" name="id" value="{{.tugas.Id}}">
+            <input type="submit" value="Submit">
+        </form> 
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+
+
+{{define "laporan-tugas"}}
+{{template "templates/layouts/siswa/header/siswadash-headerTugas" .}}
+{{template "templates/layouts/siswa/navDashS" .}}
+
+    <!-- container -->
+    <div class="container-fluid">
+
+        <!-- breadcrumb -->
+        <div class="breadcrumb-header justify-content-between">
+            <div class="left-content">
+                <div>
+                  <h2 class="main-content-title tx-34 mg-b-1 mg-b-lg-1">Halaman Laporan Tugas Siswa PRAKERIN</h2>
+                  <p class="tx-20 mg-b-0">Kamu bisa melihat daftar laporan tugas siswa yang diberikan pembimbing ^^</p>
+                </div>
+            </div>
+            <div class="main-dashboard-header-right">
+
+            </div>
+        </div>
+        <!-- /breadcrumb -->
+
+        <!-- row -->
+        <div class="row row-sm">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-xm-12">
+                <div class="card overflow-hidden sales-card bg-primary-gradient">
+                    <div class="pl-3 pt-5 pr-3 pb-5 pt-0">
+                        <div class="">
+                            <h6 class="mb-3 tx-16 text-white">LAPORAN TELAH DIREVIEW</h6>
+                        </div>
+                        <div class="pb-0 mt-0">
+                            <div class="d-flex">
+                                <div class="">
+                                    <h4 class="tx-20 font-weight-bold mb-1 text-white">
+                                        {{if eq .laporan_selesai 0}}
+                                        0
+                                        {{else if gt .laporan_selesai 0}}
+                                            {{.laporan_selesai}}
+                                        {{end}}
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-xm-12">
+                <div class="card overflow-hidden sales-card bg-warning-gradient">
+                    <div class="pl-3 pt-5 pr-3 pb-5 pt-0">
+                        <div class="">
+                            <h6 class="mb-3 tx-16 text-white">LAPORAN SEDANG DIREVIEW</h6>
+                        </div>
+                        <div class="pb-0 mt-0">
+                            <div class="d-flex">
+                                <div class="">
+                                    <h4 class="tx-20 font-weight-bold mb-1 text-white">
+                                        {{if eq .laporan_sedang 0}}
+                                        0
+                                        {{else if gt .laporan_sedang 0}}
+                                            {{.laporan_sedang}}
+                                        {{end}}
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-xm-12">
+                <div class="card overflow-hidden sales-card bg-danger-gradient">
+                    <div class="pl-3 pt-5 pr-3 pb-5 pt-0">
+                        <div class="">
+                            <h6 class="mb-3 tx-16 text-white">LAPORAN BELUM DIREVIEW</h6>
+                        </div>
+                        <div class="pb-0 mt-0">
+                            <div class="d-flex">
+                                <div class="">
+                                    <h4 class="tx-20 font-weight-bold mb-1 text-white">
+                                        {{if eq .laporan_belum 0}}
+                                        0
+                                        {{else if gt .laporan_belum 0}}
+                                            {{.laporan_belum}}
+                                        {{end}}
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row closed -->
+
+        <!-- row opened -->
+        <div class="row row-sm">
+            <!--div-->
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="card mg-b-20">
+                    <div class="card-header pb-0">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title mg-b-0">Laporan Tugas</h4>
+                        </div>
+                        <p class="tx-12 tx-gray-500 mb-2">Berikut ini adalah daftar laporan tugas yang telah kamu buat.</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example" class="table key-buttons text-md-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th class="wd-lg-10p border-bottom-0">Tanggal</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Tugas</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Pemberi Tugas</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Judul Laporan</th>
+                                        <th class="wd-lg-25p border-bottom-0 tx-left">Isi Laporan</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Status</th>
+                                        <th class="wd-lg-4p border-bottom-0 tx-left">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{range .laporans}}
+                                    <tr>
+                                        <td class="align-middle">{{.Date}}</td>
+                                        <td class="tx-left tx-medium tx-inverse align-middle">{{.Tugas_name}}</td>
+                                        <td class="tx-left tx-medium tx-inverse align-middle">{{.Pemberi}}</td>
+                                        <td class="tx-left tx-medium tx-inverse align-middle">{{.Judul_lap}}</td>
+                                        <td class="tx-left tx-medium tx-inverse align-middle">{{.Isi_lap}}</td>
+                                        {{if eq .Status 0}}
+                                            <td class="tx-left tx-medium tx-warning align-middle">Menunggu Konfirmasi</td>
+                                        {{else if eq .Status 1}}
+                                            <td class="tx-left tx-medium tx-primary align-middle">Sedang Direview</td>
+                                        {{else if eq .Status 2}}
+                                            <td class="tx-left tx-medium tx-success align-middle">Telah Direview</td>
+                                        {{end}}
+                                        <td>
+                                            {{if eq .Status 0}}
+                                                <a class="modal-effect btn btn-md btn-warning btn-block btn-middle" data-effect="effect-slide-in-right" data-toggle="modal" href="#laporanedit{{.Id}}">Edit</a>
+                                            {{else if eq .Status 1}}
+                                            
+                                            {{end}}
+                                            
+                                            {{if eq .Status 0}}
+                                                <a class="btn btn-md btn-danger btn-block btn-middle" href="/dashboard/siswa/laporan-tugas/delete?id={{.Id}}" onclick="return confirm('Yakin untuk menghapus ?');">Delete</a>
+                                            {{else if eq .Status 2}}
+                                            
+                                            {{end}}
+                                        </td>
+                                    </tr>
+                                    {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/div-->
+
+        </div>
+        <!-- row closed -->
+
+
+        {{range .laporans}}
+        <!-- Modal effects -->
+			<div class="modal" id="laporanedit{{.Id}}">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content modal-content-demo">
+                        <form action="/dashboard/siswa/laporan-tugas/edit" method="POST" class="form-horizontal" >
+                            <div class="modal-header">
+                                <h6 class="modal-title">Edit Laporan</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" class="form-control" id="laporan_id" name="laporan_id" value="{{.Id}}">
+                                    <div class="form-group">
+                                        <label for="judul">Judul Laporan</label>
+                                        <input type="text" class="form-control" id="judul_lap" name="judul_lap" value="{{.Judul_lap}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="isi">Isi Laporan</label>
+                                        <input type="text" class="form-control" id="isi_lap" name="isi_lap" value="{{.Isi_lap}}">
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn ripple btn-primary" type="submit">Save</button>
+                                <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
+                            </div>
+                        </form>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal effects-->
+            {{end}}
+
+       
+    </div>
+    <!-- /Container -->
+</div>
+<!-- /main-content -->
+{{template "templates/layouts/siswa/footer/siswadash-footerTugas"}}
+{{end}}
+

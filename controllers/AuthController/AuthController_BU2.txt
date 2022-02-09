@@ -1,0 +1,76 @@
+package AuthController
+
+import (
+	"fmt"
+	"html/template"
+	"net/http"
+
+	"github.com/gorilla/sessions"
+	"github.com/raisunee/tapklgo3/entities"
+	"github.com/raisunee/tapklgo3/models"
+)
+
+var store = sessions.NewCookieStore([]byte("mysession"))
+
+func Login(response http.ResponseWriter, request *http.Request) {
+	var tmp = template.Must(template.ParseFiles(
+		"templates/auth/login.html",
+		"templates/layouts/auth/header/auth-header.html",
+		"templates/layouts/auth/footer/auth-footer.html",
+	))
+	tmp.ExecuteTemplate(response, "login", nil)
+}
+
+func LoginProcess(response http.ResponseWriter, request *http.Request) {
+	request.ParseForm()
+	email := request.Form.Get("email")
+	password := request.Form.Get("password")
+	var userModel models.UserModel
+	users, _ := userModel.FindUser(email, password)
+
+	fmt.Printf("Username = " + email)
+	fmt.Printf("Username = " + users.Email)
+	fmt.Printf("Password = " + users.Password)
+	if email == users.Email && password == users.Password {
+		session, _ := store.Get(request, "mysession")
+		session.Values["email"] = email
+		session.Save(request, response)
+		http.Redirect(response, request, "/dashboard/admin", http.StatusSeeOther)
+	} else {
+		data := map[string]interface{}{
+			"err": "Email or Password Invalid",
+		}
+		tmp, _ := template.ParseFiles("templates/auth/login.html")
+		tmp.Execute(response, data)
+		http.Redirect(response, request, "/login", http.StatusSeeOther)
+	}
+}
+
+func Register(response http.ResponseWriter, request *http.Request) {
+	var tmp = template.Must(template.ParseFiles(
+		"templates/auth/register.html",
+		"templates/layouts/auth/header/auth-header.html",
+		"templates/layouts/auth/footer/auth-footer.html",
+	))
+	tmp.ExecuteTemplate(response, "register", nil)
+}
+
+func RegisterProcess(response http.ResponseWriter, request *http.Request) {
+	request.ParseForm()
+	var user entities.User
+	user.Name = request.Form.Get("name")
+	user.Email = request.Form.Get("email")
+	user.Password = request.Form.Get("password")
+	user.Level = "1"
+
+	var userModel models.UserModel
+	userModel.Create(&user)
+	http.Redirect(response, request, "/login", http.StatusSeeOther)
+}
+
+func Logout(response http.ResponseWriter, request *http.Request) {
+	session, _ := store.Get(request, "mysession")
+	session.Options.MaxAge = -1
+	session.Save(request, response)
+	http.Redirect(response, request, "/login", http.StatusSeeOther)
+}

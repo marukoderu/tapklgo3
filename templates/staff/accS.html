@@ -1,0 +1,110 @@
+
+
+{{define "accS"}}
+{{template "templates/layouts/staff/header/staffdash-headerAcc" .}}
+{{template "templates/layouts/staff/navDashSt" .}}
+
+    <!-- container -->
+    <div class="container-fluid">
+
+        <!-- breadcrumb -->
+        <div class="breadcrumb-header justify-content-between">
+            <div class="left-content">
+                <div>
+                  <h2 class="main-content-title tx-34 mg-b-1 mg-b-lg-1">Pengaturan Akun</h2>
+                  <p class="tx-20 mg-b-0">Kamu bisa mengatur akun mu disini</p>
+                </div>
+            </div>
+        </div>
+        <!-- /breadcrumb -->
+
+
+        <div class="card">
+            <div class="card-body" style="padding:3% 3% 3% 3%;">
+                <form action="/dashboard/admin/account/photo/update" enctype="multipart/form-data" method="POST" class="form-horizontal" >
+                    {{range .users}}
+                    <div class="main-profile-overview">
+                        <div class="row">
+                            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                <div class="main-img-user profile-user">
+                                    <img alt="" src="/assets/img/{{.Photo}}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Edit Photo</h4>
+                                <hr>
+                                <div class="form-group">
+                                    <div class="input-group file-browser">
+                                        <input type="text" class="form-control border-right-0 browse-file" name="photo" placeholder="Photo Profile" readonly>
+                                        <label class="input-group-btn">
+                                            <span class="btn btn-default">
+                                                Browse <input type="file" style="display: none;" name="photo" multiple>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{.Id}}">
+                                <button class="btn ripple btn-primary" type="submit">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                    {{end}}
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h4>Edit Akun</h4>
+            </div>
+            <div class="card-body">
+                {{range .users}}
+                <form action="/dashboard/admin/account/update" method="POST" class="form-horizontal" >
+                    <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{.Id}}">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{.Name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" value="{{.Email}}">
+                    </div>
+                    <button class="btn ripple btn-primary" type="submit">Update</button>
+                </form>
+                {{end}}
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h4>Change Password</h4>
+            </div>
+            <div class="card-body">
+                <form action="/dashboard/admin/account/password/update" method="POST" class="form-horizontal" >
+                    <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{.userId}}">
+                    <div class="form-group">
+                        <label for="name">Password Lama</label>
+                        <input type="password" class="form-control" id="password_old" name="password_old" placeholder="*****">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Password Baru</label>
+                        <input type="password" class="form-control" id="password_new" name="password_new" placeholder="*****">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Konfirmasi Password Baru</label>
+                        <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="*****">
+                    </div>
+                    <button class="btn ripple btn-primary" type="submit">Update</button>
+                    <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
+                </form>
+            </div>
+        </div>
+
+       
+    </div>
+    <!-- /Container -->
+</div>
+<!-- /main-content -->
+{{template "templates/layouts/staff/footer/staffdash-footerAcc"}}
+{{end}}
+

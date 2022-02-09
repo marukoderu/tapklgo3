@@ -1,0 +1,58 @@
+﻿VALEX-UPDATE  (16-Dec-2020)
+
+*********************************************************************************************
+
+1) Updated some js link 
+
+2) UI Improved
+
+*********************************************************************************************
+
+
+
+////////////////////////////////////////////////////////////////////
+
+1) Updated some js link in Leftmenu-Icontext(4 Versions) in LTR & RTL
+
+///////////////////////////////////////////////////////////////////
+
+
+##########
+step:1 :- Updated the Js link in  Leftmenu-Icontext(4 Versions) in LTR(HTML/html/HTML-LTR) & RTL(HTML/html/HTML-RTL) check the below code
+##########
+
+HTM-LTR (HTML/html/HTML-LTR) : Leftmenu-Icontext-Dark-Sidebar
+		 					   Leftmenu-Icontext-Dark-Sidebar-Boxed
+		 					   Leftmenu-Icontext-Light-Sidebar
+		  					   Leftmenu-Icontext-Light-Sidebar-Boxed
+
+HTM-RTL (HTML/html/HTML-RTL) : Sidemenu-Icontext-Dark
+		 					   Sidemenu-Icontext-Dark-Boxed
+		 					   Sidemenu-Icontext-Light
+		  					   Sidemenu-Icontext-Light-Boxed
+
+
+Previous :-
+		<!-- Sidebar js -->
+		<script src="../../assets/plugins/side-menu/sidemenu.js"></script>
+		
+		
+Updated :-
+		<!-- Sidebar js -->
+		<script src="../../assets/plugins/side-menu/sidemenu2.js"></script>
+
+
+////////////////////////////////////////////////////////////////////
+
+2) UI Improved
+
+///////////////////////////////////////////////////////////////////
+
+improved the UI so replace the below folders:-
+
+css(assets/css), css-rtl(assets/css-rtl)
+
+scss(assets/scss), scss(assets/scss-rtl)
+
+plugins(assets/plugins), js(assets/js)
+

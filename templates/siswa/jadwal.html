@@ -1,0 +1,212 @@
+
+
+{{define "jadwal"}}
+{{template "templates/layouts/siswa/header/siswadash-headerTugas" .}}
+{{template "templates/layouts/siswa/navDashS" .}}
+
+    <!-- container -->
+    <div class="container-fluid">
+
+        <!-- breadcrumb -->
+        <div class="breadcrumb-header justify-content-between">
+            <div class="left-content">
+                <div>
+                  <h2 class="main-content-title tx-34 mg-b-1 mg-b-lg-1">Jadwal</h2>
+                  <p class="tx-20 mg-b-0">Kamu bisa melihat daftar jadwal ^^</p>
+                </div>
+            </div>
+            <div class="main-dashboard-header-right">
+
+            </div>
+        </div>
+        <!-- /breadcrumb -->
+
+            <div class="col-12 col-lg-12 col-xl-12">
+                <div class="card bg-white">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Monday</h5>
+                        <hr>
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0 text-md-nowrap bg-white">
+                                <thead>
+                                    <tr>
+                                        <th class="wd-lg-10p border-bottom-0">Siswa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{range .jadwals_mon}}
+                                    <tr>
+                                        <td class="align-middle">{{.Name}}</td>
+                                    </tr>
+                                    {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-12 col-xl-12">
+                <div class="card bg-white">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Tuesday</h5>
+                        <hr>
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0 text-md-nowrap bg-white">
+                                <thead>
+                                    <tr>
+                                        <th class="wd-lg-10p border-bottom-0">Siswa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{range .jadwals_tue}}
+                                    <tr>
+                                        <td class="align-middle">{{.Name}}</td>
+                                    </tr>
+                                    {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-12 col-xl-12">
+                <div class="card bg-white">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Wednesday</h5>
+                        <hr>
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0 text-md-nowrap bg-white">
+                                <thead>
+                                    <tr>
+                                        <th class="wd-lg-10p border-bottom-0">Siswa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{range .jadwals_wed}}
+                                    <tr>
+                                        <td class="align-middle">{{.Name}}</td>
+                                    </tr>
+                                    {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-12 col-xl-12">
+                <div class="card bg-white">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Monday</h5>
+                        <hr>
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0 text-md-nowrap bg-white">
+                                <thead>
+                                    <tr>
+                                        <th class="wd-lg-10p border-bottom-0">Siswa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{range .jadwals_thu}}
+                                    <tr>
+                                        <td class="align-middle">{{.Name}}</td>
+                                    </tr>
+                                    {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-12 col-xl-12">
+                <div class="card bg-white">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Friday</h5>
+                        <hr>
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0 text-md-nowrap bg-white">
+                                <thead>
+                                    <tr>
+                                        <th class="wd-lg-10p border-bottom-0">Siswa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{range .jadwals_fri}}
+                                    <tr>
+                                        <td class="align-middle">{{.Name}}</td>
+                                    </tr>
+                                    {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal effects -->
+			<div class="modal" id="addjadwal">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content modal-content-demo">
+                        <form action="/dashboard/admin/jadwal/create/process" method="POST" class="form-horizontal" >
+                            <div class="modal-header">
+                                <h6 class="modal-title">Add Jadwal</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="divisi">Day</label>
+                                        <select class="form-control select2-no-search" name="day">
+                                            <option label="Choose one">
+                                            </option>
+                                            <option value="Monday">
+                                                Monday
+                                            </option>
+                                            <option value="Tuesday">
+                                                Tuesday
+                                            </option>
+                                            <option value="Wednesday">
+                                                Wednesday
+                                            </option>
+                                            <option value="Thursday">
+                                                Thursday
+                                            </option>
+                                            <option value="Friday">
+                                                Friday
+                                            </option>
+                                        </select>
+                                    </div>
+                                    {{range .users}}
+                                    <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{.Id}}">
+                                    <input type="hidden" class="form-control" id="divisi" name="divisi" value="{{.Divisi}}">
+                                    <div class="form-group">
+                                        <label for="divisi">Siswa</label>
+                                        <select class="form-control select2-no-search" name="name">
+                                            <option label="Pilih Siswa">
+                                            </option>
+                                                <option value="{{.Name}}">
+                                                    {{.Name}}
+                                                </option>
+                                        </select>
+                                    </div>
+                                    {{end}}
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn ripple btn-primary" type="submit">Save</button>
+                                <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
+                            </div>
+                        </form>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal effects-->
+       
+    </div>
+    <!-- /Container -->
+</div>
+<!-- /main-content -->
+{{template "templates/layouts/siswa/footer/siswadash-footerTugas"}}
+{{end}}
+

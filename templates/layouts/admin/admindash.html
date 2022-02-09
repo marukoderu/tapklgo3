@@ -1,0 +1,21 @@
+{{ template "pages/dash" }}
+
+{{ define "layouts/layout.html" }}
+	<body class="main-body">
+
+    <!-- Loader -->
+    <div id="global-loader">
+      <img src="assets/valex/HTML/html/assets/img/loader.svg" class="loader-img" alt="Loader">
+    </div>
+    <!-- /Loader -->
+
+    <!-- Page -->
+    <div class="page">
+
+    <!-- Start your project here-->
+    {{ template "pages/dash" }}
+    <!-- End your project here-->
+
+  </div>
+
+{{ end }}

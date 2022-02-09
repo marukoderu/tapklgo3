@@ -1,0 +1,677 @@
+VALEX-UPDATE  (06-08-2020)
+
+1)Updated Form Browser
+
+2)Updated Telephone input
+
+3)Added New Gulp task (beautify css task)
+
+4)Horizontalmenu mobile smooth transition is update
+
+5)Horizontalmenu fixed header changes are updated
+
+6)RTL chat.html issue is fixed
+
+7)RTL contacts.html issue is fixed
+
+
+//////////////////////////////////
+
+1)Updated Form Browser
+
+//////////////////////////////////
+
+Open  form-elements.html and update the File Browser as shown below
+
+
+##### PREVIOUS: #####
+
+<div class="col-sm-7 col-md-6 col-lg-4">
+    <div class="custom-file">
+	<input class="custom-file-input" id="customFile" type="file"> 
+	<label class="custom-file-label" for="customFile">Choose file</label>
+   </div>
+</div>
+
+
+##### UPDATED: #####
+	
+<div class="col-sm-7 col-md-6 col-lg-4">
+   <div class="input-group file-browser">
+	<input type="text" class="form-control browse-file" placeholder="choose" readonly>
+	<label class="input-group-btn">
+	     <span class="btn btn-default">
+		 Browse <input type="file" style="display: none;" multiple>
+	     </span>
+	</label>
+   </div>
+</div>
+
+
+
+####### JS #######
+
+
+open  form-elements.js    root --> (assets/js/form-elements.js) 
+
+Add below js at last of the page within function
+
+
+
+ADD:
+
+
+// Filebrowser
+	
+$(document).on('change', ':file', function() {
+var input = $(this),
+	numFiles = input.get(0).files ? input.get(0).files.length : 1,
+	label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+input.trigger('fileselect', [numFiles, label]);
+});
+
+// We can watch for our custom `fileselect` event like this
+$(document).ready( function() {
+  $(':file').on('fileselect', function(event, numFiles, label) {
+
+	  var input = $(this).parents('.input-group').find(':text'),
+		  log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+	  if( input.length ) {
+		  input.val(log);
+	  } else {
+		  if( log ) alert(log);
+	  }
+
+  });
+});
+
+
+
+####### SCSS #######
+
+Open _forms.scss add below scss at last of the page in LTR & RTL
+
+
+LTR-ROOT  --->  (assets\scss\bootstrap\_forms.scss)
+
+RTL-ROOT  --->  (assets\scss-rtl\bootstrap\_forms.scss)
+
+
+LTR-SCSS
+
+Add below scss in last of the page in forms.scss LTR
+
+.browse-file.form-control {
+    background-color: transparent;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+	
+}
+.file-browser .btn-default {
+    background: #f1f4fb;
+    border-top-right-radius: 3px !important;
+    border-bottom-right-radius: 3px !important;
+    padding: .56rem 15px;
+    color: #68769a;
+    border-radius: 0;
+    border: 1px solid #e2e8f5;
+}
+
+
+
+RTL-SCSS
+
+Add below scss in last of the page in forms.scss RTL
+
+.browse-file.form-control {
+    background-color: transparent;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.file-browser .form-control{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.file-browser .btn-default {
+    background: #f1f4fb;
+    border-top-left-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
+    padding: .56rem 15px;
+    color: #68769a;
+    border-radius: 0;
+    border: 1px solid #e2e8f5;
+}
+
+
+####### CSS #######
+
+Open style.css add below css at last of the page in LTR & RTL
+
+LTR-ROOT  --->  (assets\css\style.css)
+
+RTL-ROOT  --->  (assets\css-rtl\style.css)
+
+
+LTR-CSS
+
+Add below css in last of the page in style.css LTR
+
+.browse-file.form-control {
+    background-color: transparent;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+	
+}
+.file-browser .btn-default {
+    background: #f1f4fb;
+    border-top-right-radius: 3px !important;
+    border-bottom-right-radius: 3px !important;
+    padding: .56rem 15px;
+    color: #68769a;
+    border-radius: 0;
+    border: 1px solid #e2e8f5;
+}
+
+
+
+RTL-CSS
+
+Add below css in last of the page in style.css RTL
+
+.browse-file.form-control {
+    background-color: transparent;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.file-browser .form-control{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.file-browser .btn-default {
+    background: #f1f4fb;
+    border-top-left-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
+    padding: .56rem 15px;
+    color: #68769a;
+    border-radius: 0;
+    border: 1px solid #e2e8f5;
+}
+
+
+//////////////////////////////////
+
+2)Updated Telephone input
+
+//////////////////////////////////
+
+
+Step:1  Update the plugin
+
+        Replace previous Telephone plugin with updated Telephone plugin
+
+
+Step:2  Open form-advanced.html page in all folders and update html code
+
+
+####### PREVIOUS HTML #######
+
+<div class="input-group">
+    <input class="form-control" id="phone" name="phone" type="tel">
+    <span class="input-group-btn">
+	<button class="btn ripple btn-primary br-tl-0 br-bl-0" type="button">Submit</button>
+    </span>
+</div>
+
+								
+
+####### UPDATED HTML #######
+
+<div class="input-group telephone-input">
+    <input type="tel" id="mobile-number" placeholder="e.g. +1 702 123 4567">
+    <span class="input-group-btn">
+	<button class="btn ripple btn-primary" type="button">Submit</button>
+    </span>
+</div>
+
+
+
+//////////////////////////////////
+
+3) Added New Gulp task
+
+//////////////////////////////////
+
+Add below lines at line number 7 and 8
+
+cssbeautify = require('gulp-cssbeautify');
+var beautify = require('gulp-beautify'); 
+
+
+Add new gulp task in gulp file . Please add Below gulp task 
+
+
+ADD:
+
+//_______task for beautify
+gulp.task('beautify', function() {
+    return gulp.src('Admix/assets/css/**/*.css')
+        .pipe(beautify.css({ indent_size: 4 }))
+        .pipe(gulp.dest('Admix/assets/css'));
+});
+
+
+
+Add below task after rtl version comments
+
+/*--- RTl Version ---*/
+
+//_______task for beautify
+gulp.task('beautify-rtl', function() {
+     return gulp.src('html/assets/css/**/*.css')
+     .pipe(beautify.css({ indent_size: 4 }))
+     .pipe(gulp.dest('html/assets/css'));
+});
+
+
+after that run below commad in command prompt
+
+install npm install gulp-cssbeautify --save-dev
+
+
+install npm install gulp-beautify --save-dev
+
+
+
+after that run below commad in command prompt
+
+gulp beautify  /// LTR
+
+gulp beautify-rtl  /// RTL
+
+this task will beautify the .css files in css folder
+
+
+////////////////////////////////////////////////////
+
+4)Horizontalmenu mobile smooth transition is update
+
+////////////////////////////////////////////////////
+
+Please check the 1.png and 2.png follow the image
+
+Update the transition as shown in image
+
+LTR-SCSS : (assets\scss\layout\_horizontal-menu.scss)
+
+RTL-SCSS : (assets\scss-rtl\layout\_horizontal-menu.scss)
+
+
+
+LTR-CSS : (assets\css\style.css)
+
+RTL-CSS : (assets\css-rtl\style.css)
+
+
+
+///////////////////////////////////////////
+
+5)Horizontalmenu fixed header changes are updated
+
+///////////////////////////////////////////
+
+
+############## Changes in scss #############
+
+ Step:1   Please check the image 5.png
+  
+	  For sticky menu please update the js links sticky.js is above the horizontal-menu.js link
+	  please update the links  "sticky.js" should be below the horizontal-menu.js link as shown below
+
+	  all you have to do is open all HTML pages in "horizontal-menu" folder and remove the  Sticky js  and place after the Horizontalmenu js in both (LTR and RTL) HTML folders
+	  as shown below 
+
+	  PREVIOUS:
+
+	  <!-- Sticky js -->
+	  <script src="../../assets/js/sticky.js"></script>
+
+	  <!-- Horizontalmenu js-->
+	  <script src="../../assets/plugins/horizontal-menu/horizontal-menu-2/horizontal-menu.js"></script>
+
+
+	  UPDATED:
+
+	  <!-- Horizontalmenu js-->
+	  <script src="../../assets/plugins/horizontal-menu/horizontal-menu-2/horizontal-menu.js"></script>
+
+	  <!-- Sticky js -->
+	  <script src="../../assets/js/sticky.js"></script>
+  
+  
+
+Step:2  Please update this chnages in both LTR & RTL
+        
+        LTR : rootpath (assets\scss\layout\_horizontal-menu.scss)
+        
+        RTL : rootpath (assets\scss-rtl\layout\_horizontal-menu.scss)
+         
+        open _horizontal-menu.scss  
+
+        goto line number 1806 change the position fixed to  relative
+        
+        Please check the image 3.png
+
+
+	BEFORE:
+	
+	.horizontalMenucontainer {
+	  .sticky-pin {
+	    z-index: 99;
+	  }
+	
+	  .main-header {
+	    z-index: 999 !important;
+	
+	    &.hor-header {
+	      position: fixed;
+	      border-bottom: 1px solid #d3dfef;
+	    }
+	  }
+	
+	  .side-header {
+	    position: fixed;
+	  }
+        }
+	  
+	  
+	  AFTER:
+	  
+	  .horizontalMenucontainer {
+	    .sticky-pin {
+	      z-index: 99;
+	    }
+	  
+	    .main-header {
+	      z-index: 999 !important;
+	  
+	      &.hor-header {
+	       position: relative;  /////////////////// change position fixed to relative
+	        border-bottom: 1px solid #d3dfef;
+	      }
+	    }
+	  
+	    .side-header {
+	    	 position: relative;  /////////////////// change position fixed to relative
+	     }
+          }
+          
+          
+Step:3    open _horizontal-menu.scss   ----> rootpath (assets\scss\layout\_horizontal-menu.scss)
+
+          goto line number 1760 change the margin-top 0
+        
+	  PREVIOUS:
+	  
+	  .sticky.sticky-pin .horizontal-main.hor-menu {
+	    margin-top: 63px;
+	  }
+	  
+	  
+	   AFTER:
+	   
+	  .sticky.sticky-pin .horizontal-main.hor-menu {
+	    margin-top: 0;
+          }
+          
+Step:4    open _horizontal-menu.scss   ----> rootpath (assets\scss\layout\_horizontal-menu.scss)
+
+          goto line number 1642 change the margin-top 0
+          
+        
+	  PREVIOUS:
+	  
+	  .horizontal-main.hor-menu {
+	      background: #fff;
+	      border-bottom: 1px solid #d5d8e2;
+	      border-top: 1px solid #d5d8e2;  ////////////////// change border-top value 0  
+	      z-index: 1;
+	      margin-top: 63px;      ////////////////// change margin-top value 0  
+	      box-shadow: 0 1px 15px 1px #c0c0c7;
+          }
+	  
+	  
+	   UPDATED:
+	   
+	  .horizontal-main.hor-menu {
+	      background: #fff;
+	      border-bottom: 1px solid #d5d8e2;
+	      border-top: 0;
+	      z-index: 1;
+	      margin-top: 0;
+	      box-shadow: 0 1px 15px 1px #c0c0c7;
+          }        
+
+	
+	
+Step:5  LTR : rootpath (assets\scss\layout\_maincontent.scss)
+        
+        RTL : rootpath (assets\scss-rtl\layout\_maincontent.scss)
+
+        open _maincontent.scss   
+
+        goto line number 221 update the margin-top value 0
+        
+        
+        BEFORE:
+        
+        @media (min-width: 991px) {
+	  .main-content.horizontal-content {
+	    padding-top: 0 !important;
+	    margin-top: 124px;
+	  }
+        }
+        
+        
+        AFTER:
+	        
+	@media (min-width: 991px) {
+	  .main-content.horizontal-content {
+	    padding-top: 0 !important;
+	    margin-top: 0;      /////////////////// change margin-top value 0
+	  }
+        }
+        
+        goto line number 240 update the margin-top value 0 
+        
+        
+        BEFORE:
+        
+        @media (max-width: 991.98px) {
+	  .main-content.horizontal-content {
+	    margin-top: 63px !important;
+	  }
+        }
+
+	  AFTER:
+		        
+	@media (min-width: 991px) {
+	   .main-content.horizontal-content {
+	      margin-top: 0 !important; /////////////////// change margin-top value 0
+	  }
+        }
+
+ 
+############## Changes in css #############
+
+Please check the image 4.png
+ 
+
+
+//////////////////////////////////
+
+6)RTL chat.html issue is fixed
+
+//////////////////////////////////
+
+STEP1: Open "chat.js" file  root-path (Valex\assets\js\chat.js) update below js
+
+
+	DELETE:
+
+	if (window.matchMedia('(min-width: 992px)').matches) {
+		new PerfectScrollbar('#ChatList', {
+			suppressScrollX: true
+		});
+		const ChatBody = new PerfectScrollbar('#ChatBody', {
+			suppressScrollX: true
+		});
+		$('#ChatBody').scrollTop($('#ChatBody').prop('scrollHeight'));
+	}
+
+	UPDATE:
+
+	if (window.matchMedia('(min-width: 992px)').matches) {
+		new PerfectScrollbar('#ChatList', {
+		   useBothWheelAxes: false
+		});
+		const ChatBody = new PerfectScrollbar('#ChatBody', {
+		   useBothWheelAxes: false
+		});
+		$('#ChatBody').scrollTop($('#ChatBody').prop('scrollHeight'));
+	}
+
+
+############## Changes in scss #############
+
+STEP2:  open chat.scss goto line nuber 390 (assets\scss-rtl\temp\chat.scss) 
+
+	PREVIOUS:
+
+	.main-chat-body {
+	    position: relative;  ///////// delete this position
+	    padding-bottom: 50px;
+	}
+
+
+	UPDATED
+
+	.main-chat-body {
+	    padding-bottom: 50px;
+	}
+
+
+STEP3:	in chat.scss goto line nuber 159 (assets\scss-rtl\temp\chat.scss)
+
+
+	PREVIOUS:
+
+	@media (min-width: 992px) {
+	  .main-chat-list {
+	    max-height: 490px;
+	    position: relative;   ///////// delete this position
+	  }
+	}
+
+	UPDATED:
+
+	@media (min-width: 992px) {
+	  .main-chat-list {
+	    max-height: 490px;
+	  }
+      }
+      
+      
+      
+  ############## Changes in css #############
+  
+  Step:1   open style.css  goto line number 24355 delete position value -------> root-path (assets\css-rtl\style.css)
+  
+   	  PREVIOUS:
+   	  
+	  @media (min-width: 992px) {
+	    .main-chat-list {
+	      max-height: 490px;
+	     position: relative;  ///////// delete this position
+	    } 
+	  }
+	  
+	  UPDATED:
+	  
+	  @media (min-width: 992px) {
+	    .main-chat-list {
+	      max-height: 490px;
+	     position: relative; 
+	    } 
+	  }
+	  
+Step:2   open style.css  goto line number 24513 delete position -------> root-path (assets\css-rtl\style.css)
+
+	PREVIOUS:
+	  
+	.main-chat-body {
+	    position: relative;  ///////// delete this position
+	    padding-bottom: 50px;
+	}
+	  
+	  
+	UPDATED
+	  
+	.main-chat-body {
+	    padding-bottom: 50px;
+	}
+	
+	
+//////////////////////////////////
+
+7)RTL contacts.html issue is fixed
+
+//////////////////////////////////	
+	
+############## Changes in scss #############
+
+Step:1   open _contact.css  goto line number 40 delete position -------> root-path ((assets\scss-rtl\temp\_contact.scss) )	
+
+
+	PREVIOUS:
+	
+	@media (min-width: 768px) {
+	  .main-contacts-list {
+	    height: 730px;
+	    position: relative; ///////// delete this position
+	  }
+       }
+       
+       
+       UPDATED:
+       	  
+       	.main-contacts-list {
+	    height: 730px;
+	}
+	
+	
+	
+ ############## Changes in css #############
+  
+  Step:1   open style.css  goto line number 24901 delete position value -------> root-path (assets\css-rtl\style.css)
+  	
+	
+	PREVIOUS:
+	
+	@media (min-width: 768px) {
+	  .main-contacts-list {
+	    height: 730px;
+            position: relative;  ///////// delete this position
+            } }
+            
+            
+            
+        UPDATED:
+       	  
+       @media (min-width: 768px) {
+	  .main-contacts-list {
+	    height: 730px;
+            } }  
+            
+            
+ 

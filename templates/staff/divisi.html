@@ -1,0 +1,139 @@
+
+
+{{define "divisi"}}
+{{template "templates/layouts/staff/header/staffdash-headerTugas" .}}
+{{template "templates/layouts/staff/navDashSt" .}}
+
+    <!-- container -->
+    <div class="container-fluid">
+
+        <!-- breadcrumb -->
+        <div class="breadcrumb-header justify-content-between">
+            <div class="left-content">
+                <div>
+                  <h2 class="main-content-title tx-34 mg-b-1 mg-b-lg-1">Halaman List Divisi</h2>
+                  <p class="tx-20 mg-b-0">Kamu bisa melihat daftar divisi PRAKERIN ^^</p>
+                </div>
+            </div>
+            <div class="main-dashboard-header-right">
+
+            </div>
+        </div>
+        <!-- /breadcrumb -->
+
+        <!-- row opened -->
+        <div class="row row-sm">
+            <!--div-->
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="card mg-b-20">
+                    <div class="card-header pb-0">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title mg-b-0">List Divisi PRAKERIN</h4>
+                        </div>
+                        <p class="tx-12 tx-gray-500 mb-2">Berikut ini adalah daftar divisi prakerin saat ini</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example" class="table key-buttons text-md-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th class="wd-lg-10p border-bottom-0">ID</th>
+                                        <th class="wd-lg-45p border-bottom-0 tx-left">Divisi</th>
+                                        <th class="wd-lg-15p border-bottom-0 tx-left">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{range .divisis}}
+                                    <tr>
+                                        <td class="align-middle">{{.Id}}</td>
+                                        <td class="tx-left tx-medium tx-inverse align-middle">{{.Div}}</td>
+                                        <td>
+                                            <a class="modal-effect btn btn-md btn-warning btn-block btn-middle" data-effect="effect-slide-in-right" data-toggle="modal" href="#divisiedit{{.Id}}">Edit</a>
+                                            <a class="btn btn-md btn-danger btn-block btn-middle" href="/dashboard/staff/divisi/delete?id={{.Id}}" onclick="return confirm('Yakin untuk menghapus ?');">Delete</a>
+                                        </td>
+                                    </tr>
+                                    {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div>
+                                    <a class="user-c-laporan modal-effect"  data-effect="effect-slide-in-right" data-toggle="modal" href="#divisicreate"><button class="btn btn-primary btn-block align-middle">Tambah Divisi</button></a>
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-md-6">
+                                <div>
+                                    <p class="tx-12 tx-gray-500 mb-2">Buat laporan sesuai dengan apa yang kamu telah kerjakan</p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/div-->
+
+        </div>
+        <!-- row closed -->
+
+        <!-- Modal effects -->
+			<div class="modal" id="divisicreate">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content modal-content-demo">
+                        <form action="/dashboard/staff/divisi/create" method="POST" class="form-horizontal" >
+                            <div class="modal-header">
+                                <h6 class="modal-title">Tambah Divisi</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="divisi">Divisi</label>
+                                        <input type="text" class="form-control" id="divisi" name="divisi" placeholder="Nama Divisi">
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn ripple btn-primary" type="submit">Tambah</button>
+                                <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
+                            </div>
+                        </form>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal effects-->
+
+        {{range .divisis}}
+        <!-- Modal effects -->
+			<div class="modal" id="divisiedit{{.Id}}">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content modal-content-demo">
+                        <form action="/dashboard/staff/divisi/update" method="POST" class="form-horizontal" >
+                            <div class="modal-header">
+                                <h6 class="modal-title">Edit Divisi</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" class="form-control" id="divisi_id" name="divisi_id" value="{{.Id}}">
+                                    <div class="form-group">
+                                        <label for="divisi">Divisi</label>
+                                        <input type="text" class="form-control" id="divisi" name="divisi" placeholder="{{.Div}}">
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn ripple btn-primary" type="submit">Save</button>
+                                <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
+                            </div>
+                        </form>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal effects-->
+            {{end}}
+
+       
+    </div>
+    <!-- /Container -->
+</div>
+<!-- /main-content -->
+{{template "templates/layouts/staff/footer/staffdash-footerTugas"}}
+{{end}}
+

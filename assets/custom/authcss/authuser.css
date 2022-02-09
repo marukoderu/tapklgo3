@@ -1,0 +1,80 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.mainlay {
+    background-color: #ececec;
+}
+
+
+/* FORM LOGIN LAYOUT */
+.authlay {
+    padding: 10% 30% 10% 30%;
+}
+
+.authform {
+    transition: 0.5s;
+    border-radius: 24px;
+    padding: 9% 10% 9% 10%;
+    background-color: #5fcad8;
+    color: #ececec;
+    box-shadow: 2px 2px 20px #a4a5a0;
+}
+
+.maulogin > p > a {
+    transition: 0.5s;
+    color: #ececec;
+    text-decoration: none;
+}
+
+.maulogin > p > a:hover {
+    color: #FFEC00;
+    transition: 0.5s;
+}
+
+.mauregis > p > a {
+    transition: 0.5s;
+    color: #ececec;
+    text-decoration: none;
+}
+
+.mauregis > p > a:hover {
+    color: #FFEC00;
+    transition: 0.5s;
+}
+
+.authform:hover {
+    box-shadow: 5px 5px 30px #81817e;
+    transition: 0.5s;
+}
+
+
+/* FORM REGISTER LAYOUT */
+.regislay {
+    padding: 5% 30% 5% 30%;
+}
+
+.regisform {
+    transition: 0.5s;
+    border-radius: 24px;
+    padding: 8% 10% 8% 10%;
+    background-color: #FF8296;
+    color: #ececec;
+    box-shadow: 2px 2px 20px #a4a5a0;
+}
+
+.maulogin > p > a {
+    transition: 0.5s;
+    color: #ececec;
+    text-decoration: none;
+}
+
+.maulogin > p > a:hover {
+    color: #FFEC00;
+    transition: 0.5s;
+}
+
+.regisform:hover {
+    box-shadow: 5px 5px 30px #81817e;
+    transition: 0.5s;
+}
